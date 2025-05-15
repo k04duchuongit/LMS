@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhận xét và Đánh giá - LMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Toggle Button -->
+    <button class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-brand">
+                    <i class="fas fa-user-shield me-2"></i>
+                    LMS Admin
+                </a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html" class="active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Tổng quan
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chalkboard-teacher"></i> Quản lý lớp học</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-manager.html"><i class="fas fa-list me-2"></i>Danh sách lớp</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-create.html"><i class="fas fa-plus-circle me-2"></i>Đăng ký lớp</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-tasks"></i> Quản lý bài tập</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-manager.html"><i class="fas fa-list me-2"></i>Tất cả bài tập</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-essay.html"><i class="fas fa-pen-fancy me-2"></i>Thêm bài tập tự luận</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-create.html"><i class="fas fa-question-circle me-2"></i>Thêm quiz</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-pendingScore.html"><i class="fas fa-check-double me-2"></i>Chấm điểm</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-bullhorn"></i> Thông báo</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-create.html"><i class="fas fa-plus me-2"></i>Tạo thông báo</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-email.html"><i class="fas fa-envelope me-2"></i>Gửi email</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-history.html"><i class="fas fa-history me-2"></i>Lịch sử thông báo</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="student-list.html" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-user-graduate"></i>Quản lý sinh viên</span>
+                       
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-avatar" alt="User">
+                    <div class="user-details">
+                        <p class="user-name">Admin</p>
+                        <p class="user-role">Quản trị viên</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Page Header -->
+            <div class="container-fluid py-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="page-header-content">
+                        <h2 class="h3 fw-bold mb-2 text-gradient">Nhận xét & Đánh giá</h2>
+                        <p class="lead text-muted">Xem các nhận xét và đánh giá từ học viên</p>
+                    </div>
+                </div>
+
+                <!-- Filter and Search -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white">
+                                        <i class="fas fa-search text-muted"></i>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Tìm kiếm theo tên, nội dung...">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select">
+                                    <option selected>Tất cả lớp học</option>
+                                    <option>Lập trình Web cơ bản</option>
+                                    <option>Lập trình Python nâng cao</option>
+                                    <option>Lập trình Java cơ bản</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select">
+                                    <option selected>Tất cả môn học</option>
+                                    <option>HTML</option>
+                                    <option>CSS</option>
+                                    <option>JavaScript</option>
+                                    <option>Python</option>
+                                    <option>Java</option>
+                                    <option>SQL</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-filter me-2"></i>Lọc
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating Summary -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">Tổng quan đánh giá</h5>
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center border-end">
+                                <div class="display-4 fw-bold mb-0">4.7</div>
+                                <div class="mb-2">
+                                    <i class="fas fa-star rating-star"></i>
+                                    <i class="fas fa-star rating-star"></i>
+                                    <i class="fas fa-star rating-star"></i>
+                                    <i class="fas fa-star rating-star"></i>
+                                    <i class="fas fa-star-half-alt rating-star"></i>
+                                </div>
+                                <div class="text-muted">Dựa trên 128 đánh giá</div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-2 text-end">5 <i class="fas fa-star rating-star"></i></div>
+                                    <div class="col-8">
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 78%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">78%</div>
+                                </div>
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-2 text-end">4 <i class="fas fa-star rating-star"></i></div>
+                                    <div class="col-8">
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 16%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">16%</div>
+                                </div>
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-2 text-end">3 <i class="fas fa-star rating-star"></i></div>
+                                    <div class="col-8">
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 4%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">4%</div>
+                                </div>
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-2 text-end">2 <i class="fas fa-star rating-star"></i></div>
+                                    <div class="col-8">
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 1%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">1%</div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="col-2 text-end">1 <i class="fas fa-star rating-star"></i></div>
+                                    <div class="col-8">
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 1%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">1%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback List -->
+                <h5 class="mb-3">Nhận xét gần đây</h5>
+                <div class="row">
+                    <!-- Feedback 1 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-0 shadow-sm h-100 feedback-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://randomuser.me/api/portraits/men/41.jpg" class="rounded-circle me-3" width="40" height="40">
+                                        <div>
+                                            <div class="fw-semibold">Nguyễn Văn A</div>
+                                            <div class="small text-muted">Lập trình Web cơ bản</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                        </div>
+                                        <div class="feedback-date">08/05/2024</div>
+                                    </div>
+                                </div>
+                                <p class="mb-0">Khóa học rất hay và bổ ích. Giảng viên giảng dạy dễ hiểu, tài liệu đầy đủ và bài tập thực hành giúp tôi nắm vững kiến thức. Tôi đã học được rất nhiều điều mới và có thể áp dụng vào công việc thực tế.</p>
+                            </div>
+                            <div class="card-footer bg-white border-top-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-reply me-1"></i>Phản hồi
+                                    </button>
+                                    <div>
+                                        <span class="me-3"><i class="far fa-thumbs-up me-1"></i>12</span>
+                                        <span><i class="far fa-comment me-1"></i>3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback 2 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-0 shadow-sm h-100 feedback-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://randomuser.me/api/portraits/women/67.jpg" class="rounded-circle me-3" width="40" height="40">
+                                        <div>
+                                            <div class="fw-semibold">Trần Thị B</div>
+                                            <div class="small text-muted">Lập trình Web cơ bản</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="far fa-star rating-star"></i>
+                                        </div>
+                                        <div class="feedback-date">05/05/2024</div>
+                                    </div>
+                                </div>
+                                <p class="mb-0">Nội dung khóa học rất chi tiết và dễ hiểu. Tuy nhiên, tôi nghĩ nên có thêm nhiều ví dụ thực tế hơn để học viên có thể hiểu rõ hơn về cách áp dụng kiến thức vào thực tế. Nhìn chung tôi rất hài lòng với khóa học này.</p>
+                            </div>
+                            <div class="card-footer bg-white border-top-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-reply me-1"></i>Phản hồi
+                                    </button>
+                                    <div>
+                                        <span class="me-3"><i class="far fa-thumbs-up me-1"></i>8</span>
+                                        <span><i class="far fa-comment me-1"></i>2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback 3 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-0 shadow-sm h-100 feedback-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://randomuser.me/api/portraits/men/22.jpg" class="rounded-circle me-3" width="40" height="40">
+                                        <div>
+                                            <div class="fw-semibold">Lê Văn C</div>
+                                            <div class="small text-muted">Lập trình Python nâng cao</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="far fa-star rating-star"></i>
+                                            <i class="far fa-star rating-star"></i>
+                                        </div>
+                                        <div class="feedback-date">01/05/2024</div>
+                                    </div>
+                                </div>
+                                <p class="mb-0">Tôi thấy khóa học khá khó đối với người mới bắt đầu như tôi. Có một số phần giảng viên giải thích hơi nhanh và phức tạp. Tuy nhiên, tài liệu bổ sung và forum hỏi đáp rất hữu ích giúp tôi giải quyết được nhiều vấn đề.</p>
+                            </div>
+                            <div class="card-footer bg-white border-top-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-reply me-1"></i>Phản hồi
+                                    </button>
+                                    <div>
+                                        <span class="me-3"><i class="far fa-thumbs-up me-1"></i>4</span>
+                                        <span><i class="far fa-comment me-1"></i>5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback 4 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-0 shadow-sm h-100 feedback-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://randomuser.me/api/portraits/women/33.jpg" class="rounded-circle me-3" width="40" height="40">
+                                        <div>
+                                            <div class="fw-semibold">Phạm Thị D</div>
+                                            <div class="small text-muted">Lập trình Java cơ bản</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                            <i class="fas fa-star rating-star"></i>
+                                        </div>
+                                        <div class="feedback-date">28/04/2024</div>
+                                    </div>
+                                </div>
+                                <p class="mb-0">Khóa học rất tuyệt vời! Giảng viên giảng dạy rõ ràng, dễ hiểu và luôn sẵn sàng giải đáp thắc mắc. Các bài tập thực hành giúp tôi hiểu sâu hơn về Java. Tôi đã học được rất nhiều và cảm thấy tự tin hơn trong việc lập trình.</p>
+                            </div>
+                            <div class="card-footer bg-white border-top-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-reply me-1"></i>Phản hồi
+                                    </button>
+                                    <div>
+                                        <span class="me-3"><i class="far fa-thumbs-up me-1"></i>15</span>
+                                        <span><i class="far fa-comment me-1"></i>2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <div class="text-muted small">Hiển thị 1-4 của 24 nhận xét</div>
+                    <nav>
+                        <ul class="pagination pagination-sm">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                    <i class="fas fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div> <!-- End of main-content -->
+    </div> <!-- End of wrapper -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

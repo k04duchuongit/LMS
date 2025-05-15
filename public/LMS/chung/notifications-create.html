@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo thông báo - LMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <!-- Mobile Toggle Button -->
+    <button class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+       <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-brand">
+                    <i class="fas fa-user-graduate me-2"></i>
+                    LMS Student
+                </a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                         <a href="../student/dashbroad.html" class="active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Tổng quan
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chalkboard-teacher"></i> Lớp học</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-list.html"><i class="fas fa-list me-2"></i>Tất cả lớp</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-joined.html"><i class="fas fa-calendar me-2"></i>Lớp của tôi</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chart-line"></i> Kết quả học tập</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="score-total.html"><i class="fas fa-tasks me-2"></i>Bảng điểm tổng</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="learningProgress.html"><i class="fas fa-chart-bar me-2"></i>Tiến độ học tập</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="certificates.html"><i class="fas fa-certificate me-2"></i>Chứng chỉ</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../chung/pageChat.html">
+                            <i class="fas fa-comments"></i>
+                            Trò chuyện
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../chung/pageChat.html">
+                            <i class="fas fa-bell"></i>
+                            Thông báo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../chung/account.html">
+                            <i class="fas fa-user"></i>
+                            Hồ sơ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-avatar" alt="User">
+                    <div class="user-details">
+                        <p class="user-name">Nguyễn Văn A</p>
+                        <p class="user-role">Học viên</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="content-header">
+                <div class="header-left">
+                    <h1>Tạo thông báo</h1>
+                    <p class="text-muted">Tạo và gửi thông báo đến người dùng</p>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-icon" title="Thông báo">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </button>
+                        <button class="btn btn-icon" title="Tin nhắn">
+                            <i class="fas fa-envelope"></i>
+                            <span class="badge">5</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Content -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="notificationForm">
+                                <!-- Thông tin cơ bản -->
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-3">Thông tin thông báo</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Tiêu đề <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="title" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Loại thông báo <span class="text-danger">*</span></label>
+                                            <select class="form-select" name="type" required>
+                                                <option value="">Chọn loại thông báo</option>
+                                                <option value="announcement">Thông báo chung</option>
+                                                <option value="course">Thông báo khóa học</option>
+                                                <option value="class">Thông báo lớp học</option>
+                                                <option value="system">Thông báo hệ thống</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Nội dung <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" name="content" rows="6" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Đối tượng nhận -->
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-3">Đối tượng nhận thông báo</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Nhóm người dùng</label>
+                                            <select class="form-select" name="userGroup">
+                                                <option value="all">Tất cả người dùng</option>
+                                                <option value="students">Học viên</option>
+                                                <option value="teachers">Giáo viên</option>
+                                                <option value="admins">Quản trị viên</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Trạng thái</label>
+                                            <select class="form-select" name="status">
+                                                <option value="active">Đang hoạt động</option>
+                                                <option value="inactive">Không hoạt động</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tùy chọn gửi -->
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-3">Tùy chọn gửi</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Thời gian gửi</label>
+                                            <input type="datetime-local" class="form-control" name="sendTime">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Ưu tiên</label>
+                                            <select class="form-select" name="priority">
+                                                <option value="normal">Bình thường</option>
+                                                <option value="high">Cao</option>
+                                                <option value="urgent">Khẩn cấp</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="sendEmail" id="sendEmail">
+                                                <label class="form-check-label" for="sendEmail">
+                                                    Gửi kèm email
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Nút điều khiển -->
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button type="button" class="btn btn-light" onclick="window.location.href='notifications-history.html'">
+                                        <i class="fas fa-times me-2"></i>Hủy
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane me-2"></i>Gửi thông báo
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Mẫu thông báo -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Mẫu thông báo</h5>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Thông báo khai giảng</h6>
+                                        <small class="text-muted">3 ngày trước</small>
+                                    </div>
+                                    <p class="mb-1">Thông báo về lịch khai giảng các lớp học mới...</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Thông báo bảo trì</h6>
+                                        <small class="text-muted">1 tuần trước</small>
+                                    </div>
+                                    <p class="mb-1">Thông báo về thời gian bảo trì hệ thống...</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Thông báo nghỉ lễ</h6>
+                                        <small class="text-muted">2 tuần trước</small>
+                                    </div>
+                                    <p class="mb-1">Thông báo về lịch nghỉ lễ sắp tới...</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hướng dẫn -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Hướng dẫn</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    Điền đầy đủ thông tin bắt buộc (có dấu *)
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-users text-primary me-2"></i>
+                                    Chọn đối tượng nhận thông báo phù hợp
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-clock text-primary me-2"></i>
+                                    Có thể lên lịch gửi thông báo
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope text-primary me-2"></i>
+                                    Tùy chọn gửi kèm email
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/main.js"></script>ript>
+</body>
+
+</html> 

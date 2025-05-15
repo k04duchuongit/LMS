@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - LMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="lms-auth-card">
+        <div class="lms-auth-logo">
+            <i class="fas fa-user-plus"></i>
+        </div>
+        <h3 class="lms-auth-title">Đăng ký LMS</h3>
+        <div class="lms-auth-sub">Tạo tài khoản mới để bắt đầu học tập</div>
+        <form>
+            <div class="mb-3">
+                <label for="registerName" class="form-label">Họ và tên</label>
+                <input type="text" class="form-control" id="registerName" placeholder="Nhập họ và tên" required>
+            </div>
+            <div class="mb-3">
+                <label for="registerEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="registerEmail" placeholder="Nhập email" required>
+            </div>
+            <div class="mb-3">
+                <label for="registerPassword" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control" id="registerPassword" placeholder="Nhập mật khẩu" required>
+            </div>
+            <div class="mb-3">
+                <label for="registerPassword2" class="form-label">Nhập lại mật khẩu</label>
+                <input type="password" class="form-control" id="registerPassword2" placeholder="Nhập lại mật khẩu" required>
+            </div>
+            <button type="submit" class="btn lms-btn-primary w-100 mb-2">Đăng ký</button>
+        </form>
+        <div class="lms-auth-footer">
+            Đã có tài khoản?
+            <a href="login.html" class="lms-link">Đăng nhập</a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

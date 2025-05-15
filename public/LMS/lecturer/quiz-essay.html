@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm bài tập tự luận - LMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Toggle Button -->
+    <button class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-brand">
+                    <i class="fas fa-user-shield me-2"></i>
+                    LMS Admin
+                </a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html" class="active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Tổng quan
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chalkboard-teacher"></i> Quản lý lớp học</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-manager.html"><i class="fas fa-list me-2"></i>Danh sách lớp</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-create.html"><i class="fas fa-plus-circle me-2"></i>Đăng ký lớp</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-tasks"></i> Quản lý bài tập</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-manager.html"><i class="fas fa-list me-2"></i>Tất cả bài tập</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-essay.html"><i class="fas fa-pen-fancy me-2"></i>Thêm bài tập tự luận</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-create.html"><i class="fas fa-question-circle me-2"></i>Thêm quiz</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-pendingScore.html"><i class="fas fa-check-double me-2"></i>Chấm điểm</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-bullhorn"></i> Thông báo</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-create.html"><i class="fas fa-plus me-2"></i>Tạo thông báo</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-email.html"><i class="fas fa-envelope me-2"></i>Gửi email</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-history.html"><i class="fas fa-history me-2"></i>Lịch sử thông báo</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="student-list.html" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-user-graduate"></i>Quản lý sinh viên</span>
+                       
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-avatar" alt="User">
+                    <div class="user-details">
+                        <p class="user-name">Admin</p>
+                        <p class="user-role">Quản trị viên</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="content-header">
+                <div class="header-left">
+                    <h1>Thêm bài tập tự luận</h1>
+                    <p class="text-muted">Tạo bài tập mới cho lớp học</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-outline-secondary me-2" onclick="history.back()">
+                        <i class="fas fa-arrow-left me-2"></i>Quay lại
+                    </button>
+                    <button class="btn btn-primary" type="submit" form="essayForm">
+                        <i class="fas fa-save me-2"></i>Lưu bài tập
+                    </button>
+                </div>
+            </div>
+
+            <!-- Form Content -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <form id="essayForm">
+                        <!-- Basic Information -->
+                        <div class="mb-4">
+                            <h5 class="card-title mb-3">Thông tin cơ bản</h5>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Tên bài tập <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Lớp học <span class="text-danger">*</span></label>
+                                    <select class="form-select" required>
+                                        <option value="">Chọn lớp học</option>
+                                        <option value="WEB101">Lập trình Web cơ bản (WEB101)</option>
+                                        <option value="WEB102">Lập trình Web nâng cao (WEB102)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Ngày bắt đầu <span class="text-danger">*</span></label>
+                                    <input type="datetime-local" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Hạn nộp <span class="text-danger">*</span></label>
+                                    <input type="datetime-local" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Questions Section -->
+                        <div class="mb-4">
+                            <h5 class="card-title mb-3">Danh sách câu hỏi</h5>
+                            <div id="questionsList">
+                                <!-- Question Template -->
+                                <div class="question-item card border mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h6 class="mb-0">Câu hỏi 1</h6>
+                                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeQuestion(this)">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <label class="form-label">Nội dung câu hỏi <span class="text-danger">*</span></label>
+                                                <textarea class="form-control" rows="3" required></textarea>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Điểm tối đa <span class="text-danger">*</span></label>
+                                                <input type="number" class="form-control" min="0" max="100" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Số từ tối thiểu</label>
+                                                <input type="number" class="form-control" min="0" placeholder="Để trống nếu không yêu cầu">
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">Gợi ý trả lời</label>
+                                                <textarea class="form-control" rows="2" placeholder="Nhập gợi ý cho học viên (không bắt buộc)"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-primary" onclick="addQuestion()">
+                                <i class="fas fa-plus me-2"></i>Thêm câu hỏi
+                            </button>
+                        </div>
+
+                        <!-- Grading Settings -->
+                        <div class="mb-4">
+                            <h5 class="card-title mb-3">Cài đặt chấm điểm</h5>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Tổng điểm bài tập <span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" min="0" max="100" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Trọng số (%)</label>
+                                    <input type="number" class="form-control" min="0" max="100" value="100">
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="enableRubric">
+                                        <label class="form-check-label" for="enableRubric">
+                                            Sử dụng rubric chấm điểm
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 rubric-settings" style="display: none;">
+                                    <div class="card border">
+                                        <div class="card-body">
+                                            <div id="rubricList">
+                                                <div class="rubric-item mb-3">
+                                                    <div class="row g-2">
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" placeholder="Tiêu chí">
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <input type="number" class="form-control" placeholder="Điểm tối đa">
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" placeholder="Mô tả">
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <button class="btn btn-outline-danger" type="button" onclick="removeRubric(this)">
+                                                                <i class="fas fa-times"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="addRubric()">
+                                                <i class="fas fa-plus me-2"></i>Thêm tiêu chí
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

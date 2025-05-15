@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị hệ thống - LMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <!-- Mobile Toggle Button -->
+    <button class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-brand">
+                    <i class="fas fa-user-shield me-2"></i>
+                    LMS Admin
+                </a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html" class="active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Tổng quan
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-users"></i> Quản lý người dùng</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="listClient.html"><i class="fas fa-list me-2"></i>Danh sách người dùng</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="addClient.html"><i class="fas fa-user-plus me-2"></i>Thêm người dùng</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="users-roles.html"><i class="fas fa-user-tag me-2"></i>Phân quyền người dùng</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-book"></i> Quản lý môn học</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="courses-list.html"><i class="fas fa-list me-2"></i>Danh sách môn học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="courses-create.html"><i class="fas fa-plus me-2"></i>Thêm môn học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="courses-categories.html"><i class="fas fa-tags me-2"></i>Danh mục môn học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="courses-assign.html"><i class="fas fa-user-tie me-2"></i>Phân công giảng viên</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chalkboard"></i> Quản lý lớp học</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="classes-list.html"><i class="fas fa-list me-2"></i>Danh sách lớp học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="classes-approve.html"><i class="fas fa-check-circle me-2"></i>Duyệt lớp học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="classes-progress.html"><i class="fas fa-chart-line me-2"></i>Tiến độ học tập</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-bell"></i> Thông báo</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="notifications-create.html"><i class="fas fa-plus me-2"></i>Tạo thông báo</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="notifications-email.html"><i class="fas fa-envelope me-2"></i>Gửi email</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="notifications-history.html"><i class="fas fa-history me-2"></i>Lịch sử thông báo</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chart-bar"></i> Báo cáo</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="reports-overview.html"><i class="fas fa-chart-pie me-2"></i>Tổng quan hệ thống</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="reports-users.html"><i class="fas fa-users me-2"></i>Báo cáo người dùng</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="reports-courses.html"><i class="fas fa-book me-2"></i>Báo cáo khóa học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="reports-progress.html"><i class="fas fa-chart-line me-2"></i>Báo cáo tiến độ</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            Cài đặt
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-avatar" alt="User">
+                    <div class="user-details">
+                        <p class="user-name">Admin</p>
+                        <p class="user-role">Quản trị viên</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="content-header">
+                <div class="header-left">
+                    <h1>Dashboard</h1>
+                    <p class="text-muted">Chào mừng trở lại, Admin!</p>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-icon" title="Thông báo">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </button>
+                        <button class="btn btn-icon" title="Tin nhắn">
+                            <i class="fas fa-envelope"></i>
+                            <span class="badge">5</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-primary">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>1,234</h3>
+                            <p>Tổng số học viên</p>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 12%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-success">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>45</h3>
+                            <p>Tổng số giảng viên</p>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 5%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-info">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>56</h3>
+                            <p>Tổng số môn học</p>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 8%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-warning">
+                            <i class="fas fa-chalkboard"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>89</h3>
+                            <p>Tổng số lớp học</p>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 15%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks and Activities -->
+            <div class="row g-4">
+                <!-- Tasks -->
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h2>Công việc cần xử lý</h2>
+                            <a href="#" class="view-all">Xem tất cả</a>
+                        </div>
+                        <div class="task-list">
+                            <div class="task-item">
+                                <div class="task-icon bg-primary">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="task-info">
+                                    <h4>Duyệt lớp học mới</h4>
+                                    <p>3 lớp học đang chờ duyệt</p>
+                                </div>
+                                <a href="classes-approve.html" class="btn btn-sm btn-primary">Xử lý</a>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon bg-success">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="task-info">
+                                    <h4>Phân công giảng viên</h4>
+                                    <p>2 môn học cần phân công</p>
+                                </div>
+                                <a href="courses-assign.html" class="btn btn-sm btn-primary">Xử lý</a>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon bg-info">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                <div class="task-info">
+                                    <h4>Gửi thông báo</h4>
+                                    <p>Thông báo mới cho giảng viên</p>
+                                </div>
+                                <a href="notifications-create.html" class="btn btn-sm btn-primary">Xử lý</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h2>Hoạt động gần đây</h2>
+                            <a href="#" class="view-all">Xem tất cả</a>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon bg-success">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <h4>Thêm giảng viên mới</h4>
+                                    <p>Nguyễn Văn A đã được thêm vào hệ thống</p>
+                                    <span class="activity-time">5 phút trước</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-info">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <h4>Tạo môn học mới</h4>
+                                    <p>Môn học "Lập trình Web" đã được tạo</p>
+                                    <span class="activity-time">1 giờ trước</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-warning">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <h4>Duyệt lớp học</h4>
+                                    <p>Lớp "Lập trình Web cơ bản" đã được duyệt</p>
+                                    <span class="activity-time">2 giờ trước</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm danh mục môn học - LMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <!-- Mobile Toggle Button -->
+    <button class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-brand">
+                    <i class="fas fa-user-shield me-2"></i>
+                    LMS Admin
+                </a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html" class="active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Tổng quan
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-users"></i> Quản lý người dùng</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="listClient.html"><i class="fas fa-list me-2"></i>Danh sách người dùng</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="addClient.html"><i class="fas fa-user-plus me-2"></i>Thêm người dùng</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="users-roles.html"><i class="fas fa-user-tag me-2"></i>Phân quyền người dùng</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-book"></i> Quản lý môn học</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="courses-list.html"><i class="fas fa-list me-2"></i>Danh sách môn học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="courses-create.html"><i class="fas fa-plus me-2"></i>Thêm môn học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="courses-categories.html"><i class="fas fa-tags me-2"></i>Danh mục môn học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="courses-assign.html"><i class="fas fa-user-tie me-2"></i>Phân công giảng viên</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chalkboard"></i> Quản lý lớp học</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="classes-list.html"><i class="fas fa-list me-2"></i>Danh sách lớp học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="classes-approve.html"><i class="fas fa-check-circle me-2"></i>Duyệt lớp học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="classes-progress.html"><i class="fas fa-chart-line me-2"></i>Tiến độ học tập</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-bell"></i> Thông báo</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="notifications-create.html"><i class="fas fa-plus me-2"></i>Tạo thông báo</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="notifications-email.html"><i class="fas fa-envelope me-2"></i>Gửi email</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="notifications-history.html"><i class="fas fa-history me-2"></i>Lịch sử thông báo</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chart-bar"></i> Báo cáo</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="reports-overview.html"><i class="fas fa-chart-pie me-2"></i>Tổng quan hệ thống</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="reports-users.html"><i class="fas fa-users me-2"></i>Báo cáo người dùng</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="reports-courses.html"><i class="fas fa-book me-2"></i>Báo cáo khóa học</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="reports-progress.html"><i class="fas fa-chart-line me-2"></i>Báo cáo tiến độ</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            Cài đặt
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-avatar" alt="User">
+                    <div class="user-details">
+                        <p class="user-name">Admin</p>
+                        <p class="user-role">Quản trị viên</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="content-header">
+                <div class="header-left">
+                    <h1>Thêm danh mục môn học</h1>
+                    <p class="text-muted">Tạo danh mục môn học mới cho hệ thống</p>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-icon" title="Thông báo">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </button>
+                        <button class="btn btn-icon" title="Tin nhắn">
+                            <i class="fas fa-envelope"></i>
+                            <span class="badge">5</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Content -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="addCategoryForm">
+                                <!-- Thông tin cơ bản -->
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-3">Thông tin cơ bản</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Tên danh mục <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="categoryName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Mã danh mục <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="categoryCode" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Danh mục cha</label>
+                                            <select class="form-select" name="parentCategory">
+                                                <option value="">Không có</option>
+                                                <option value="1">Lập trình</option>
+                                                <option value="2">Thiết kế</option>
+                                                <option value="3">Kinh doanh</option>
+                                                <option value="4">Ngoại ngữ</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Trạng thái <span class="text-danger">*</span></label>
+                                            <select class="form-select" name="status" required>
+                                                <option value="active">Đang hoạt động</option>
+                                                <option value="inactive">Không hoạt động</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Mô tả <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" name="description" rows="4" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Thông tin bổ sung -->
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-3">Thông tin bổ sung</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Thứ tự hiển thị</label>
+                                            <input type="number" class="form-control" name="displayOrder" min="1">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Màu sắc</label>
+                                            <input type="color" class="form-control form-control-color" name="color" value="#0d6efd">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Từ khóa tìm kiếm</label>
+                                            <input type="text" class="form-control" name="keywords" placeholder="Nhập từ khóa, phân cách bằng dấu phẩy">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Nút điều khiển -->
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button type="button" class="btn btn-light" onclick="window.location.href='courses-categories.html'">
+                                        <i class="fas fa-times me-2"></i>Hủy
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save me-2"></i>Lưu thông tin
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Hướng dẫn -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Hướng dẫn</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    Điền đầy đủ thông tin bắt buộc (có dấu *)
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-tag text-primary me-2"></i>
+                                    Mã danh mục phải là duy nhất
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-sitemap text-primary me-2"></i>
+                                    Có thể tạo danh mục con
+                                </li>
+                                <li>
+                                    <i class="fas fa-palette text-primary me-2"></i>
+                                    Tùy chỉnh màu sắc cho danh mục
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Thông tin bổ sung -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Thông tin bổ sung</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Biểu tượng danh mục</label>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="icon-preview">
+                                        <i class="fas fa-book fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#iconModal">
+                                            <i class="fas fa-icons me-2"></i>Chọn biểu tượng
+                                        </button>
+                                        <p class="text-muted small mt-2">Chọn biểu tượng phù hợp với danh mục</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Icon Modal -->
+    <div class="modal fade" id="iconModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chọn biểu tượng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="icon-grid">
+                        <div class="icon-item" data-icon="fa-book">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="icon-item" data-icon="fa-code">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="icon-item" data-icon="fa-paint-brush">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="icon-item" data-icon="fa-chart-line">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="icon-item" data-icon="fa-language">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="icon-item" data-icon="fa-calculator">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+

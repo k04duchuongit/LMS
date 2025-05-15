@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lớp học đã tham gia - LMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <!-- Mobile Toggle Button -->
+    <button class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+       <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-brand">
+                    <i class="fas fa-user-graduate me-2"></i>
+                    LMS Student
+                </a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="dashbroad.html" class="active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Tổng quan
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chalkboard-teacher"></i> Lớp học</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-list.html"><i class="fas fa-list me-2"></i>Tất cả lớp</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-joined.html"><i class="fas fa-calendar me-2"></i>Lớp của tôi</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chart-line"></i> Kết quả học tập</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="score-total.html"><i class="fas fa-tasks me-2"></i>Bảng điểm tổng</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="learningProgress.html"><i class="fas fa-chart-bar me-2"></i>Tiến độ học tập</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="certificates.html"><i class="fas fa-certificate me-2"></i>Chứng chỉ</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../chung/pageChat.html">
+                            <i class="fas fa-comments"></i>
+                            Trò chuyện
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../chung/pageChat.html">
+                            <i class="fas fa-bell"></i>
+                            Thông báo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../chung/account.html">
+                            <i class="fas fa-user"></i>
+                            Hồ sơ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-avatar" alt="User">
+                    <div class="user-details">
+                        <p class="user-name">Nguyễn Văn A</p>
+                        <p class="user-role">Học viên</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Banner -->
+            <div class="lms-banner text-white bg-primary mb-4 py-4">
+                <div class="container d-flex align-items-center">
+                    <div class="row w-100">
+                        <div class="col-lg-8">
+                            <h1 class="display-5 fw-bold mb-2">Lập trình Web cơ bản</h1>
+                            <p class="lead mb-2">Học cách xây dựng website từ cơ bản đến nâng cao với HTML, CSS và JavaScript.</p>
+                            <div class="mb-2">
+                                <span class="badge bg-light text-dark me-2">Giáo viên: Trần Thị B</span>
+                                <span class="badge bg-light text-dark">Số lượng: 30 học viên</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 d-flex align-items-center justify-content-end">
+                            <img src="https://img.freepik.com/free-vector/website-creator-concept-illustration_114360-4457.jpg" alt="Banner" class="img-fluid rounded shadow" style="max-height: 120px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container pb-5">
+                <!-- Thông tin lớp học -->
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title mb-2">Mô tả lớp học</h5>
+                                <p class="mb-0">Khóa học này giúp bạn nắm vững kiến thức nền tảng về HTML, CSS, JavaScript và thực hành xây dựng các website hiện đại. Phù hợp cho người mới bắt đầu hoặc muốn củng cố lại kiến thức cơ bản.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h6 class="card-title mb-2"><i class="fas fa-info-circle me-2"></i>Hướng dẫn</h6>
+                                <ul class="mb-0 ps-3 small">
+                                    <li>Chọn tab <b>Quiz</b> hoặc <b>Bài tự luận</b> để xem và làm bài.</li>
+                                    <li>Nhấn <b>Làm quiz</b> hoặc <b>Nộp bài</b> để bắt đầu.</li>
+                                    <li>Xem kết quả tại tab <b>Kết quả học tập</b>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="row mb-4">
+                    <div class="col-12 d-flex gap-3">
+                        <a href="scoreboard.html" class="btn btn-primary">
+                            <i class="fas fa-chart-bar me-2"></i>Xem bảng điểm
+                        </a>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#leaveClassModal">
+                            <i class="fas fa-sign-out-alt me-2"></i>Rời khỏi lớp
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <ul class="nav nav-tabs mb-4" id="assignmentTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="quiz-tab" data-bs-toggle="tab" data-bs-target="#quiz" type="button" role="tab">
+                            <i class="fas fa-tasks me-2"></i>Quiz
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="assignment-tab" data-bs-toggle="tab" data-bs-target="#assignment" type="button" role="tab">
+                            <i class="fas fa-file-alt me-2"></i>Bài tự luận
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="assignmentTabsContent">
+                    <!-- Quiz Tab -->
+                    <div class="tab-pane fade show active" id="quiz" role="tabpanel">
+                        <div class="row g-4">
+                            <!-- Quiz chưa làm -->
+                            <div class="col-lg-8">
+                                <div class="card border-0 shadow-sm rounded-3 mb-4">
+                                    <div class="card-header bg-white border-0 py-3">
+                                        <h5 class="card-title mb-0">
+                                            <i class="fas fa-clock text-warning me-2"></i>
+                                            Quiz chưa làm
+                                        </h5>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <div class="list-group list-group-flush">
+                                            <div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                                <div>
+                                                    <span class="badge bg-warning rounded-circle me-2">&nbsp;</span>
+                                                    <b>Quiz 1: HTML cơ bản</b>
+                                                    <small class="d-block text-muted mt-1">Hạn nộp: 20/03/2024</small>
+                                                </div>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <small class="text-muted">20 câu hỏi</small>
+                                                    <a href="./quiz-multiple.html" class="btn btn-sm btn-primary">
+                                                        <i class="fas fa-play me-1"></i>Làm quiz
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                                <div>
+                                                    <span class="badge bg-warning rounded-circle me-2">&nbsp;</span>
+                                                    <b>Quiz 2: CSS cơ bản</b>
+                                                    <small class="d-block text-muted mt-1">Hạn nộp: 25/03/2024</small>
+                                                </div>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <small class="text-muted">25 câu hỏi</small>
+                                                    <a href="./quiz-multiple.html" class="btn btn-sm btn-primary">
+                                                        <i class="fas fa-play me-1"></i>Làm quiz
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quiz đã làm -->
+                            <div class="col-lg-4">
+                                <div class="card border-0 shadow-sm rounded-3 mb-4">
+                                    <div class="card-header bg-white border-0 py-3">
+                                        <h5 class="card-title mb-0">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            Quiz đã làm
+                                        </h5>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <div class="list-group list-group-flush">
+                                            <a href="../quiz/quiz-result.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                                                <div>
+                                                    <span class="badge bg-success rounded-circle me-2">&nbsp;</span>
+                                                    <b>Quiz 0: Kiểm tra đầu vào</b>
+                                                    <small class="d-block text-muted mt-1">Điểm: 8.5/10</small>
+                                                </div>
+                                                <span class="badge bg-success rounded-pill">Hoàn thành</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assignment Tab -->
+                    <div class="tab-pane fade" id="assignment" role="tabpanel">
+                        <div class="row g-4">
+                            <!-- Bài tập chưa làm -->
+                            <div class="col-lg-8">
+                                <div class="card border-0 shadow-sm rounded-3 mb-4">
+                                    <div class="card-header bg-white border-0 py-3">
+                                        <h5 class="card-title mb-0">
+                                            <i class="fas fa-clock text-warning me-2"></i>
+                                            Bài tập chưa làm
+                                        </h5>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <div class="list-group list-group-flush">
+                                            <div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                                <div>
+                                                    <span class="badge bg-warning rounded-circle me-2">&nbsp;</span>
+                                                    <b>Bài tập 1: Xây dựng trang web tĩnh</b>
+                                                    <small class="d-block text-muted mt-1">Hạn nộp: 22/03/2024</small>
+                                                </div>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <small class="text-muted">HTML, CSS</small>
+                                                    <a href="../assignment/submit-assignment.html" class="btn btn-sm btn-primary">
+                                                        <i class="fas fa-upload me-1"></i>Nộp bài
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                                <div>
+                                                    <span class="badge bg-warning rounded-circle me-2">&nbsp;</span>
+                                                    <b>Bài tập 2: Form đăng ký</b>
+                                                    <small class="d-block text-muted mt-1">Hạn nộp: 28/03/2024</small>
+                                                </div>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <small class="text-muted">HTML, CSS, JS</small>
+                                                    <a href="../assignment/submit-assignment.html" class="btn btn-sm btn-primary">
+                                                        <i class="fas fa-upload me-1"></i>Nộp bài
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bài tập đã làm -->
+                            <div class="col-lg-4">
+                                <div class="card border-0 shadow-sm rounded-3 mb-4">
+                                    <div class="card-header bg-white border-0 py-3">
+                                        <h5 class="card-title mb-0">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            Bài tập đã nộp
+                                        </h5>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <div class="list-group list-group-flush">
+                                            <a href="../assignment/assignment-result.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                                                <div>
+                                                    <span class="badge bg-success rounded-circle me-2">&nbsp;</span>
+                                                    <b>Bài tập 0: Giới thiệu bản thân</b>
+                                                    <small class="d-block text-muted mt-1">Điểm: 9/10</small>
+                                                </div>
+                                                <span class="badge bg-success rounded-pill">Đã nộp</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End of main-content -->
+    </div> <!-- End of wrapper -->
+
+    <!-- Modal xác nhận rời lớp -->
+    <div class="modal fade" id="leaveClassModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xác nhận rời lớp</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn rời khỏi lớp học này? Hành động này không thể hoàn tác.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger">Xác nhận rời lớp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

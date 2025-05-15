@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết lớp học - LMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Mobile Toggle Button -->
+    <button class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-brand">
+                    <i class="fas fa-user-graduate me-2"></i>
+                    LMS Student
+                </a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="dashbroad.html" class="active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Tổng quan
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chalkboard-teacher"></i> Lớp học</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-list.html"><i class="fas fa-list me-2"></i>Tất cả lớp</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-joined.html"><i class="fas fa-calendar me-2"></i>Lớp của tôi</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chart-line"></i> Kết quả học tập</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="score-total.html"><i class="fas fa-tasks me-2"></i>Bảng điểm tổng</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="learningProgress.html"><i class="fas fa-chart-bar me-2"></i>Tiến độ học tập</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="certificates.html"><i class="fas fa-certificate me-2"></i>Chứng chỉ</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../chung/pageChat.html">
+                            <i class="fas fa-comments"></i>
+                            Trò chuyện
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../chung/pageChat.html">
+                            <i class="fas fa-bell"></i>
+                            Thông báo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../chung/account.html">
+                            <i class="fas fa-user"></i>
+                            Hồ sơ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-avatar" alt="User">
+                    <div class="user-details">
+                        <p class="user-name">Nguyễn Văn A</p>
+                        <p class="user-role">Học viên</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Banner -->
+            <div class="lms-banner text-white">
+                <div class="container h-100 d-flex align-items-center">
+                    <div class="row w-100">
+                        <div class="col-lg-8">
+                            <h1 class="display-4 fw-bold mb-3">Lập trình Web cơ bản</h1>
+                            <p class="lead mb-4">Học cách xây dựng website từ cơ bản đến nâng cao với HTML, CSS và JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container py-5">
+                <div class="row g-4">
+                    <!-- Thông tin chi tiết -->
+                    <div class="col-lg-12">
+                        <!-- Thông tin giảng viên -->
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" 
+                                         class="rounded-circle me-4" width="80" height="80" alt="Giảng viên">
+                                    <div>
+                                        <h5 class="mb-2">Trần Thị B</h5>
+                                        <p class="text-muted mb-2">Giảng viên Khoa Công nghệ thông tin</p>
+                                        <div class="d-flex gap-3">
+                                            <span class="text-muted"><i class="fas fa-user-graduate me-2"></i>5 năm kinh nghiệm</span>
+                                            <span class="text-muted"><i class="fas fa-award me-2"></i>10 khóa học</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mô tả khóa học -->
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <h5 class="card-title mb-4">Mô tả khóa học</h5>
+                                <p class="card-text mb-4">
+                                    Khóa học này sẽ giúp bạn nắm vững các kiến thức cơ bản về lập trình web, từ đó có thể tự xây dựng website cho riêng mình. Nội dung khóa học bao gồm:
+                                </p>
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-3 fs-4"></i>
+                                            <div>
+                                                <h6 class="mb-1">HTML5 và CSS3</h6>
+                                                <p class="text-muted mb-0">Xây dựng giao diện web</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-3 fs-4"></i>
+                                            <div>
+                                                <h6 class="mb-1">JavaScript</h6>
+                                                <p class="text-muted mb-0">Tương tác người dùng</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-3 fs-4"></i>
+                                            <div>
+                                                <h6 class="mb-1">Responsive Design</h6>
+                                                <p class="text-muted mb-0">Tương thích mọi thiết bị</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-3 fs-4"></i>
+                                            <div>
+                                                <h6 class="mb-1">Bootstrap 5</h6>
+                                                <p class="text-muted mb-0">Framework CSS hiện đại</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-user-plus me-2"></i>Tham gia khóa học
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Các khóa học cùng loại -->
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-4">
+                                <h5 class="card-title mb-4">Các khóa học cùng loại</h5>
+                                <div class="row g-4">
+                                    <div class="col-md-4">
+                                        <div class="lms-related-class card h-100">
+                                            <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                                                 class="card-img-top" alt="Web Development">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Lập trình Web nâng cao</h6>
+                                                <p class="card-text text-muted small">
+                                                    <i class="fas fa-user me-1"></i>GV: Nguyễn Văn A
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="lms-stat-value">25 bài học</div>
+                                                    <a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="lms-related-class card h-100">
+                                            <img src="https://images.unsplash.com/photo-1526379879527-8559ecfcaec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                                                 class="card-img-top" alt="Web Development">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Lập trình Web với React</h6>
+                                                <p class="card-text text-muted small">
+                                                    <i class="fas fa-user me-1"></i>GV: Lê Thị C
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="lms-stat-value">20 bài học</div>
+                                                    <a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="lms-related-class card h-100">
+                                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                                                 class="card-img-top" alt="Web Development">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Lập trình Web với Node.js</h6>
+                                                <p class="card-text text-muted small">
+                                                    <i class="fas fa-user me-1"></i>GV: Phạm Văn D
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="lms-stat-value">18 bài học</div>
+                                                    <a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End of main-content -->
+    </div> <!-- End of wrapper -->
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

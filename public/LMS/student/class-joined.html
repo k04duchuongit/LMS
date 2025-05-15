@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lớp học của tôi - LMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+      <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-brand">
+                    <i class="fas fa-user-graduate me-2"></i>
+                    LMS Student
+                </a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="dashbroad.html" class="active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Tổng quan
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chalkboard-teacher"></i> Lớp học</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-list.html"><i class="fas fa-list me-2"></i>Tất cả lớp</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-joined.html"><i class="fas fa-calendar me-2"></i>Lớp của tôi</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-chart-line"></i> Kết quả học tập</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </a>
+                        <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="score-total.html"><i class="fas fa-tasks me-2"></i>Bảng điểm tổng</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="learningProgress.html"><i class="fas fa-chart-bar me-2"></i>Tiến độ học tập</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="certificates.html"><i class="fas fa-certificate me-2"></i>Chứng chỉ</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../chung/pageChat.html">
+                            <i class="fas fa-comments"></i>
+                            Trò chuyện
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../chung/pageChat.html">
+                            <i class="fas fa-bell"></i>
+                            Thông báo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../chung/account.html">
+                            <i class="fas fa-user"></i>
+                            Hồ sơ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-avatar" alt="User">
+                    <div class="user-details">
+                        <p class="user-name">Nguyễn Văn A</p>
+                        <p class="user-role">Học viên</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Mobile Toggle Button -->
+        <button class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h4 class="text-primary mb-4">
+                <i class="fas fa-book me-2"></i>
+                Lớp học của tôi
+            </h4>
+
+            <!-- Search and Filter -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body">
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">
+                                    <i class="fas fa-search text-muted"></i>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Tìm kiếm lớp học...">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-select">
+                                <option selected>Lọc theo trạng thái</option>
+                                <option value="in-progress">Đang học</option>
+                                <option value="completed">Đã hoàn thành</option>
+                                <option value="upcoming">Sắp bắt đầu</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-filter me-2"></i>Tìm kiếm
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Enrolled Classes -->
+            <div class="row g-3">
+                <!-- Class 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=60&q=80" 
+                                     class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                <div>
+                                    <h6 class="card-title text-primary mb-1">Lập trình Web cơ bản</h6>
+                                    <p class="card-text text-muted small mb-0">
+                                        <i class="fas fa-user me-1"></i>GV: Trần Thị B
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <small class="text-muted">Tiến độ học tập</small>
+                                    <span class="badge bg-primary badge-progress">75%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="course-stats mt-auto">
+                                <div class="row text-center g-2">
+                                    <div class="col">
+                                        <div class="stat-value">15/20</div>
+                                        <div class="stat-label">Bài học</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="stat-value">3/5</div>
+                                        <div class="stat-label">Quiz</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="stat-value">8.5</div>
+                                        <div class="stat-label">Điểm TB</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <a href="./class-joined-detail.html" class="btn btn-primary w-100">
+                                    <i class="fas fa-play-circle me-2"></i>Tiếp tục học
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-1.2.1&auto=format&fit=crop&w=60&q=80" 
+                                     class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                <div>
+                                    <h6 class="card-title text-primary mb-1">Cơ sở dữ liệu</h6>
+                                    <p class="card-text text-muted small mb-0">
+                                        <i class="fas fa-user me-1"></i>GV: Nguyễn Văn C
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <small class="text-muted">Tiến độ học tập</small>
+                                    <span class="badge bg-success badge-progress">100%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="course-stats mt-auto">
+                                <div class="row text-center g-2">
+                                    <div class="col">
+                                        <div class="stat-value">20/20</div>
+                                        <div class="stat-label">Bài học</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="stat-value">5/5</div>
+                                        <div class="stat-label">Quiz</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="stat-value">9.2</div>
+                                        <div class="stat-label">Điểm TB</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-success w-100">
+                                    <i class="fas fa-certificate me-2"></i>Xem chứng chỉ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1526379879527-8559ecfcaec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=60&q=80" 
+                                     class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                <div>
+                                    <h6 class="card-title text-primary mb-1">Python cơ bản</h6>
+                                    <p class="card-text text-muted small mb-0">
+                                        <i class="fas fa-user me-1"></i>GV: Lê Thị D
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <small class="text-muted">Tiến độ học tập</small>
+                                    <span class="badge bg-warning badge-progress">25%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div>
+                                </div>
+                            </div>
+                            <div class="course-stats mt-auto">
+                                <div class="row text-center g-2">
+                                    <div class="col">
+                                        <div class="stat-value">5/20</div>
+                                        <div class="stat-label">Bài học</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="stat-value">1/5</div>
+                                        <div class="stat-label">Quiz</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="stat-value">7.5</div>
+                                        <div class="stat-label">Điểm TB</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <a href="joinedClass.html" class="btn btn-primary w-100">
+                                    <i class="fas fa-play-circle me-2"></i>Tiếp tục học
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
