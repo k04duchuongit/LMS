@@ -4,9 +4,9 @@ namespace App\App\Shared\Controllers;
 
 use Illuminate\Http\Request;
 
-class Notification
+class NotificationController
 {
-    public function createNotification()
+ public function createNotification()
     {
         return view('shared.notifications.notification-create');
     }

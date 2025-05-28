@@ -34,8 +34,10 @@
                             <i class="fas fa-chevron-down ms-2"></i>
                         </a>
                         <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
-                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-manager.html"><i class="fas fa-list me-2"></i>Danh sách lớp</a></li>
-                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-create.html"><i class="fas fa-plus-circle me-2"></i>Đăng ký lớp</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-manager.html"><i
+                                        class="fas fa-list me-2"></i>Danh sách lớp</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="class-create.html"><i
+                                        class="fas fa-plus-circle me-2"></i>Đăng ký lớp</a></li>
                         </ul>
                     </li>
                     <li class="sidebar-dropdown">
@@ -44,10 +46,14 @@
                             <i class="fas fa-chevron-down ms-2"></i>
                         </a>
                         <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
-                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-manager.html"><i class="fas fa-list me-2"></i>Tất cả bài tập</a></li>
-                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-essay.html"><i class="fas fa-pen-fancy me-2"></i>Thêm bài tập tự luận</a></li>
-                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-create.html"><i class="fas fa-question-circle me-2"></i>Thêm quiz</a></li>
-                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-pendingScore.html"><i class="fas fa-check-double me-2"></i>Chấm điểm</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-manager.html"><i
+                                        class="fas fa-list me-2"></i>Tất cả bài tập</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-essay.html"><i
+                                        class="fas fa-pen-fancy me-2"></i>Thêm bài tập tự luận</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-create.html"><i
+                                        class="fas fa-question-circle me-2"></i>Thêm quiz</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="quiz-pendingScore.html"><i
+                                        class="fas fa-check-double me-2"></i>Chấm điểm</a></li>
                         </ul>
                     </li>
 
@@ -57,15 +63,19 @@
                             <i class="fas fa-chevron-down ms-2"></i>
                         </a>
                         <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
-                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-create.html"><i class="fas fa-plus me-2"></i>Tạo thông báo</a></li>
-                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-email.html"><i class="fas fa-envelope me-2"></i>Gửi email</a></li>
-                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-history.html"><i class="fas fa-history me-2"></i>Lịch sử thông báo</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-create.html"><i
+                                        class="fas fa-plus me-2"></i>Tạo thông báo</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-email.html"><i
+                                        class="fas fa-envelope me-2"></i>Gửi email</a></li>
+                            <li><a class="dropdown-item py-2 px-3 rounded" href="../chung/notifications-history.html"><i
+                                        class="fas fa-history me-2"></i>Lịch sử thông báo</a></li>
                         </ul>
                     </li>
                     <li class="sidebar-dropdown">
-                        <a href="student-list.html" class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
+                        <a href="student-list.html"
+                            class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between">
                             <span><i class="fas fa-user-graduate"></i>Quản lý sinh viên</span>
-                       
+
                         </a>
                     </li>
                 </ul>
@@ -82,9 +92,23 @@
         </aside>
 
         <!-- Main Content -->
-        <div class="main-content p-4">
-            <h2 class="text-gradient fw-bold mb-3">Tạo Quiz mới</h2>
-            <p class="text-muted">Tạo bài kiểm tra với nhiều loại câu hỏi khác nhau</p>
+        <div class="main-content">
+
+            <div class="content-header">
+                <div class="header-left">
+                    <h2 class="text-gradient fw-bold mb-3">Tạo Quiz mới</h2>
+                    <p class="text-muted">Tạo bài kiểm tra với nhiều loại câu hỏi khác nhau</p>
+
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-outline-secondary me-2" onclick="history.back()">
+                        <i class="fas fa-arrow-left me-2"></i>Quay lại
+                    </button>
+                    <button class="btn btn-primary" type="submit" form="essayForm">
+                        <i class="fas fa-save me-2"></i>Lưu bài tập
+                    </button>
+                </div>
+            </div>
 
             <!-- Quiz Information -->
             <div class="card mb-4">
@@ -298,20 +322,7 @@
                         </div>
                     </div>
 
-                    <!-- Quiz Actions -->
-                    <div class="d-flex justify-content-between mt-4 mb-5">
-                        <button class="btn btn-outline-secondary">
-                            <i class="fas fa-save me-1"></i>Lưu nháp
-                        </button>
-                        <div>
-                            <button class="btn btn-outline-primary me-2">
-                                <i class="fas fa-eye me-1"></i>Xem trước
-                            </button>
-                            <button class="btn btn-primary">
-                                <i class="fas fa-check-circle me-1"></i>Hoàn thành
-                            </button>
-                        </div>
-                    </div>
+                 
                 </div>
 
                 <div class="col-lg-3">

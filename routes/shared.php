@@ -1,12 +1,23 @@
 <?php
 
-use App\App\Shared\Controllers\Notification;
+use App\App\Shared\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
-use App\App\SuperAdmin\Controllers\ClassController as AdminClassController;
-use App\App\SuperAdmin\Controllers\DashboardAdminController;
-use App\App\SuperAdmin\Controllers\SubjectController as AdminSubjectController;
-use App\App\SuperAdmin\Controllers\UserController as AdminUserController;
+use App\App\Shared\Controllers\BoxChatController;
+use App\App\Shared\Controllers\ProfileController;
 
-Route::get('/create-notification', [Notification::class, 'createNotification'])->name('notification.create');
-Route::get('/sendmail-notification', [Notification::class, 'createMail'])->name('notification.sendMail');
-Route::get('/notification-history', [Notification::class, 'notificationHistory'])->name('notification.history');
+//NOTIFICATION
+Route::get('/notification/create-notification', [NotificationController::class, 'createNotification'])->name('notification.create');
+Route::get('/notification/sendmail-notification', [NotificationController::class, 'createMail'])->name('notification.sendMail');
+Route::get('/notification/notification-history', [NotificationController::class, 'notificationHistory'])->name('notification.history');
+//END NOTIFICATION
+
+//PROFILE
+Route::get('/profile', [ProfileController::class, 'pageProfile'])->name('profile.main');
+
+Route::get('/profile/update', [ProfileController::class, 'loadPageUpdateProfile'])->name('profile.update');
+//END PROFILE
+
+
+//BOX CHAT
+Route::get('/box-chat', [BoxChatController::class, 'pageBoxChat'])->name('box.chat');
+//END BOX CHAT

@@ -21,7 +21,6 @@ class SharedRouteServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Route::middleware(['web'])
-        ->prefix('notification')
         ->group(base_path('routes/shared.php'));
     }
 }

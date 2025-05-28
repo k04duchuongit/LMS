@@ -1,0 +1,146 @@
+   @extends('shared.layouts.app')
+   @section('content')
+       <div class="main-content">
+           <!-- Header -->
+           <div class="content-header">
+               <div class="header-left">
+                   <h2 class="text-gradient fw-bold mb-3">Quản lý lớp học</h1>
+                       <p class="text-muted">Tạo và quản lý các lớp học của bạn</p>
+               </div>
+               <div class="header-right">
+                   <a href="class-create.html" class="btn btn-primary">
+                       <i class="fas fa-plus me-2"></i>Tạo lớp học mới
+                   </a>
+               </div>
+           </div>
+
+
+           <!-- Filter Section -->
+           <div class="card border-0 shadow-sm mb-4">
+               <div class="card-body">
+                   <div class="row g-3">
+                       <div class="col-md-4">
+                           <div class="input-group">
+                               <span class="input-group-text bg-white">
+                                   <i class="fas fa-search text-muted"></i>
+                               </span>
+                               <input type="text" class="form-control" placeholder="Tìm kiếm lớp học...">
+                           </div>
+                       </div>
+                       <div class="col-md-3">
+                           <select class="form-select">
+                               <option value="">Tất cả trạng thái</option>
+                               <option value="active">Đang hoạt động</option>
+                               <option value="draft">Bản nháp</option>
+                               <option value="archived">Đã lưu trữ</option>
+                           </select>
+                       </div>
+                       <div class="col-md-3">
+                           <select class="form-select">
+                               <option value="">Sắp xếp theo</option>
+                               <option value="name_asc">Tên lớp (A-Z)</option>
+                               <option value="name_desc">Tên lớp (Z-A)</option>
+                               <option value="date_desc">Mới nhất</option>
+                               <option value="date_asc">Cũ nhất</option>
+                           </select>
+                       </div>
+                       <div class="col-md-2">
+                           <button class="btn btn-outline-secondary w-100">
+                               <i class="fas fa-filter me-2"></i>Lọc
+                           </button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+           <!-- Class List -->
+           <div class="row g-4">
+               <!-- Class Card 1 -->
+               <div class="col-md-6 col-lg-4">
+                   <div class="card border-0 shadow-sm h-100">
+                       <div class="card-header bg-primary text-white py-3">
+                           <div class="d-flex justify-content-between align-items-center">
+                               <h5 class="card-title mb-0">Lập trình Web cơ bản</h5>
+                               <span class="badge bg-white text-primary">WEB101</span>
+                           </div>
+                       </div>
+                       <div class="card-body">
+                           <div class="class-info mb-3">
+                               <div class="d-flex align-items-center mb-2">
+                                   <i class="fas fa-users text-primary me-2"></i>
+                                   <span>45 học viên</span>
+                               </div>
+                               <div class="d-flex align-items-center mb-2">
+                                   <i class="fas fa-tasks text-primary me-2"></i>
+                                   <span>5 bài tập, 3 quiz</span>
+                               </div>
+                               <div class="d-flex align-items-center">
+                                   <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                   <span>Học kỳ 1, 2024-2025</span>
+                               </div>
+                           </div>
+
+                           <div class="d-flex justify-content-between align-items-center">
+                               <small class="text-muted">Tiến độ: 75%</small>
+                               <span class="badge bg-success">Đang hoạt động</span>
+                           </div>
+                       </div>
+                       <div class="card-footer bg-white border-top-0">
+                           <div class="d-flex gap-2">
+                               <a href="class-detail.html" class="btn btn-sm btn-primary flex-grow-1">
+                                   <i class="fas fa-eye me-1"></i>Xem chi tiết
+                               </a>
+                               <button class="btn btn-sm btn-outline-primary" title="Gửi thông báo">
+                                   <i class="fas fa-bell"></i>
+                               </button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Class Card 2 -->
+               <div class="col-md-6 col-lg-4">
+                   <div class="card border-0 shadow-sm h-100">
+                       <div class="card-header bg-success text-white py-3">
+                           <div class="d-flex justify-content-between align-items-center">
+                               <h5 class="card-title mb-0">JavaScript nâng cao</h5>
+                               <span class="badge bg-white text-success">JS201</span>
+                           </div>
+                       </div>
+                       <div class="card-body">
+                           <div class="class-info mb-3">
+                               <div class="d-flex align-items-center mb-2">
+                                   <i class="fas fa-users text-success me-2"></i>
+                                   <span>32 học viên</span>
+                               </div>
+                               <div class="d-flex align-items-center mb-2">
+                                   <i class="fas fa-tasks text-success me-2"></i>
+                                   <span>4 bài tập, 2 quiz</span>
+                               </div>
+                               <div class="d-flex align-items-center">
+                                   <i class="fas fa-calendar-alt text-success me-2"></i>
+                                   <span>Học kỳ 1, 2024-2025</span>
+                               </div>
+                           </div>
+
+                           <div class="d-flex justify-content-between align-items-center">
+                               <small class="text-muted">Tiến độ: 40%</small>
+                               <span class="badge bg-success">Đang hoạt động</span>
+                           </div>
+                       </div>
+                       <div class="card-footer bg-white border-top-0">
+                           <div class="d-flex gap-2">
+                               <a href="class-detail.html" class="btn btn-sm btn-success flex-grow-1">
+                                   <i class="fas fa-eye me-1"></i>Xem chi tiết
+                               </a>
+                               <button class="btn btn-sm btn-outline-success" title="Gửi thông báo">
+                                   <i class="fas fa-bell"></i>
+                               </button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+ 
+   @endsection

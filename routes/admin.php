@@ -6,7 +6,7 @@ use App\App\SuperAdmin\Controllers\DashboardAdminController;
 use App\App\SuperAdmin\Controllers\SubjectController as AdminSubjectController;
 use App\App\SuperAdmin\Controllers\UserController as AdminUserController;
 
-Route::get('/dashboard', [DashboardAdminController::class, 'loadDashboard'])->name('dashboard');
+Route::get('/', [DashboardAdminController::class, 'loadDashboard'])->name('dashboard');
 Route::resource('user', AdminUserController::class);
 
 Route::get('subject/assign', [AdminSubjectController::class, 'assignSubject'])->name('subject.assign');
