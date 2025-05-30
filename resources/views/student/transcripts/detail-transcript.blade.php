@@ -84,7 +84,7 @@
                                         <span class="badge bg-success">Hoàn thành</span>
                                     </td>
                                     <td class="py-3">
-                                        <a href="reviewquiz.html" class="btn btn-sm btn-outline-primary">
+                                        <a href="{{route('student.exercises.review.quiz')}}" class="btn btn-sm btn-outline-primary">
                                             <i class="fas fa-eye me-1"></i>Xem lại
                                         </a>
                                     </td>

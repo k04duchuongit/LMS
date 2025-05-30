@@ -48,7 +48,7 @@
                 <!-- Action Buttons -->
                 <div class="row mb-4">
                     <div class="col-12 d-flex gap-3">
-                        <a href="scoreboard.html" class="btn btn-primary">
+                        <a href="{{ route('student.transcript.detail') }}" class="btn btn-primary">
                             <i class="fas fa-chart-bar me-2"></i>Xem bảng điểm
                         </a>
                         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#leaveClassModal">

@@ -11,16 +11,16 @@ class ClassController
     {
         return view('student.class-v.main-page-class');
     }
-
-    // detail class 
-    public function detailClass()
-    {
-        return view('student.class-v.class-detail');
-    }
     
     //list class joined
     public function pageClassJoined()
     {
         return view('student.class-v.list-class-joined');
+    }
+
+      // detail class joined
+    public function detailClassJoined()
+    {
+        return view('student.class-v.class-detail-joined');
     }
 }

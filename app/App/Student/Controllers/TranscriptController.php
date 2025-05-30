@@ -14,6 +14,10 @@ class TranscriptController
        return view('student.transcripts.main-transcript');
     }
 
+    public function detailTranscript()
+    {
+        return view('student.transcripts.detail-transcript');
+    }
     /**
      * Show the form for creating a new resource.
      */

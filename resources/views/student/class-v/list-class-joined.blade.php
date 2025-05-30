@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="mt-3">
-                            <a href="./class-joined-detail.html" class="btn btn-primary w-100">
+                            <a href="{{ route('student.class.detail.joined')}}" class="btn btn-primary w-100">
                                 <i class="fas fa-play-circle me-2"></i>Tiếp tục học
                             </a>
                         </div>

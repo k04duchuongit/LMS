@@ -8,7 +8,7 @@
       <div class="sidebar-menu">
           <ul>
               <li>
-                  <a href="dashbroad.html" class="active">
+                  <a href="{{ route('student.dashboard') }}" class="active">
                       <i class="fas fa-tachometer-alt"></i>
                       Tổng quan
                   </a>
@@ -20,9 +20,9 @@
                   </a>
                   <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
 
-                      <li><a class="dropdown-item py-2 px-3 rounded" href="{{ route('class.list') }}"><i
+                      <li><a class="dropdown-item py-2 px-3 rounded" href="{{ route('student.class.list') }}"><i
                                   class="fas fa-list me-2"></i>Tất cả lớp</a></li>
-                      <li><a class="dropdown-item py-2 px-3 rounded"  href="{{ route('class.joined') }}"><i
+                      <li><a class="dropdown-item py-2 px-3 rounded"  href="{{ route('student.class.joined') }}"><i
                                   class="fas fa-calendar me-2"></i>Lớp của tôi</a></li>
                   </ul>
               </li>
@@ -32,7 +32,7 @@
                       <i class="fas fa-chevron-down ms-2"></i>
                   </a>
                   <ul class="sidebar-dropdown-menu list-unstyled ms-4 mb-2" style="display: none;">
-                      <li><a class="dropdown-item py-2 px-3 rounded" href="{{ route('transcript.main') }}"><i
+                      <li><a class="dropdown-item py-2 px-3 rounded" href="{{ route('student.transcript.main') }}"><i
                                   class="fas fa-tasks me-2"></i>Bảng điểm tổng</a></li>
                       <li><a class="dropdown-item py-2 px-3 rounded" href="learningProgress.html"><i
                                   class="fas fa-chart-bar me-2"></i>Tiến độ học tập</a></li>
