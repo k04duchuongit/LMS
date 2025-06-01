@@ -1,0 +1,44 @@
+app/
+
+├── Domain/                      # Tầng nghiệp vụ (business logic thuần túy)
+
+│   └── Product/                 # Module sản phẩm, chứa toàn bộ logic nghiệp vụ liên quan
+
+│       ├── Actions/             # Các hành động nghiệp vụ (tạo, sửa, xóa...)
+
+│       ├── DataTransferObjects/ # DTO - truyền dữ liệu sạch, không phụ thuộc framework
+
+│       ├── Entities/            # Thực thể nghiệp vụ (thuần logic, không liên quan DB)
+
+│       ├── Exceptions/          # Ngoại lệ riêng của domain (ví dụ: sản phẩm không tồn tại)
+
+│       └── Repositories/        # Interface định nghĩa truy xuất dữ liệu (sẽ implement bên Infrastructure)  - chứa các câu lệnh sql
+
+├── Infrastructure/              # Tầng hạ tầng, xử lý giao tiếp DB, API, dịch vụ ngoài
+
+│   ├── Models/                  # Eloquent Models kết nối cơ sở dữ liệu
+
+│   ├── Repositories/            # Triển khai các interface repository từ Domain
+
+│   └── Support/                 # Helper, tiện ích dùng chung toàn hệ thống
+
+├── App/                        # Tầng ứng dụng, xử lý request & response
+
+│   ├── Api/                    # API controller, request, resource...
+
+│   └── Admin/                  # Giao diện quản trị: controller, request, viewmodel...
+
+
+
+
+Các key cần phải nhớ
+
+- Data transfer objects (Đối tượng truyền dữ liệu) DTO      ## lớp hứng dữ liệu từ request để chế biến sẵn sàng để dùng 
+- Repository Pattern                                        ## (tách bạch các truy vấn ra khỏi nghiệp vụ)
+- Custom Query Builders                                     ## tạo các query builder tùy ý , ghi đè lên builder gốc để sử dụng
+- View model                                                ## Chuẩn bị dữ liệu dể đẩy sang view 
+- Domain model                                              ## Đẩy truy vấn xuống hạ tầng, không nằm ở model mặc định nữa
+- Service                                                   ## Đẩy các phương thức đặc biết ra ngoài tách ra khỏi CRUD thông thường
+- Domains                                                   ## Tổ chức codebase tách biệt
+- Use Case hay Actions                                      ## Tách C_R_U_D ra từng class riêng
+- Command Bus Design Pattern                                ## Kée hợp các kiến thức ở bên trên
