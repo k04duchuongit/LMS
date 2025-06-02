@@ -29,6 +29,29 @@ app/
 │   └── Admin/                  # Giao diện quản trị: controller, request, viewmodel...
 
 
+[1] HTTP Request
+       ↓
+[2] Route (web.php / api.php)
+       ↓
+[3] Controller (Tầng App)
+       ↓
+[4] Action / UseCase (Tầng Domain)
+       ↓
+[5] Repository Interface (Tầng Domain)
+       ↓
+[6] Repository Implementation (Tầng Infrastructure)
+       ↓
+[7] Eloquent Model / DB query (Tầng Infrastructure)
+       ↓
+[8] Trả kết quả về Action
+       ↓
+[9] Action xử lý logic (nếu có) rồi trả về Controller
+       ↓
+[10] ViewModel (App) — chuẩn bị dữ liệu cho view
+       ↓
+[11] View Blade (Hiển thị cho user)
+       ↓
+[12] HTTP Response
 
 
 Các key cần phải nhớ
