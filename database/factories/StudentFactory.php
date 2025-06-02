@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Infrastructure\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Model>
  */
-class UserFactory extends Factory
+class StudentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,10 +18,8 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->email(),
-            'password' => Hash::make('11111111'),
-            'number_phone' => $this->faker->phoneNumber(),
+            'student_code' => $this->faker->unique()->numerify('STU-#####'),
+            'user_id' => User::factory(),
         ];
     }
 }

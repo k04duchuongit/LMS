@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string('student_code')->unique();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-   
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {  // tên bảng thường viết chữ thường
+            $table->string('role')->default('user')->after('image');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');  // drop cột role khi rollback
+        });
     }
 };
