@@ -2,6 +2,8 @@
 
 namespace App\App\SuperAdmin\Controllers;
 
+use App\Domain\User\Actions\ListUserAction;
+use App\App\SuperAdmin\ViewModels\UserViewModel;
 use Illuminate\Http\Request;
 
 class UserController
@@ -9,9 +11,10 @@ class UserController
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(UserViewModel $userViewModel)
     {
-        return view('supperadmin.client-v.manager-client');
+
+        return view('supperadmin.client-v.manager-client', compact('userViewModel'));
     }
 
     /**

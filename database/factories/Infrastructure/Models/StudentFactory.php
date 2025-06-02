@@ -1,17 +1,15 @@
 <?php
-
-namespace Database\Factories;
+namespace Database\Factories\Infrastructure\Models;
 
 use App\Infrastructure\Models\User;
-use App\Infrastructure\Models\Lecturer;  
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Model>
  */
-class LecturerFactory extends Factory
+class StudentFactory extends Factory
 {
-
+    protected $model = \App\Infrastructure\Models\Student::class;
     /**
      * Define the model's default state.
      *
@@ -20,7 +18,7 @@ class LecturerFactory extends Factory
     public function definition(): array
     {
         return [
-            'lecturer_code' => $this->faker->unique()->numerify('LCT-#####'),
+            'student_code' => $this->faker->unique()->numerify('STU-#####'),
             'user_id' => User::factory(),
         ];
     }

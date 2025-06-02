@@ -12,7 +12,7 @@ app/
 
 │       ├── Exceptions/          # Ngoại lệ riêng của domain (ví dụ: sản phẩm không tồn tại)
 
-│       └── Repositories/        # Interface định nghĩa truy xuất dữ liệu (sẽ implement bên Infrastructure)  - chứa các câu lệnh sql
+│       └── Repositories/        # Interface định nghĩa truy xuất dữ liệu (sẽ  Infrastructure sẽ implement  ở đây)  - chứa các câu lệnh sql
 
 ├── Infrastructure/              # Tầng hạ tầng, xử lý giao tiếp DB, API, dịch vụ ngoài
 
