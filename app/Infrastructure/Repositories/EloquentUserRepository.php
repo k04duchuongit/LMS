@@ -16,16 +16,22 @@ class EloquentUserRepository implements UserRepositoryInterface
     public function getUserById(int $id)
     {
         // Implementation for getting a user by ID
-        return null;
+        return User::find($id);
     }
 
-    public function createUser(array $data)
+    public function createUser($data)
     {
-        // Implementation for creating a new user
-        return null;
+
+        return User::create([
+            'name' => $data->fullName,
+            'email' => $data->email,
+            'password' => bcrypt($data->password),
+            'number_phone' => $data->number_phone,
+            'role' => $data->role ?? null,
+        ]);
     }
 
-    public function updateUser(int $id, array $data)
+    public function updateUser(int $id, $data)
     {
         // Implementation for updating an existing user
         return null;

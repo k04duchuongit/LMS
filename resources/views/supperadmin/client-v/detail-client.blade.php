@@ -9,7 +9,7 @@
                     <p>Xem thông tin chi tiết về người dùng</p>
                 </div>
                 <div class="header-right">
-                    <a href="ManagerClient.html" class="btn btn-light">
+                    <a href="{{ route('admin.user.index') }}" class="btn btn-light">
                         <i class="fas fa-arrow-left"></i> Quay lại
                     </a>
                 </div>
@@ -23,9 +23,9 @@
                         <div class="card-body text-center">
                             <img src="https://ui-avatars.com/api/?name=Nguyen+Van+A&background=4f46e5&color=fff"
                                 alt="User Avatar" class="rounded-circle mb-3" style="width: 120px; height: 120px;">
-                            <h4 class="mb-1">Nguyễn Văn A</h4>
-                            <p class="text-muted mb-3">ID: USR001</p>
-                            <span class="badge bg-primary mb-3">Học viên</span>
+                            <h4 class="mb-1">{{ $UserDetailViewModel->user()->name }}</h4>
+                            <p class="text-muted mb-3">ID: {{ $UserDetailViewModel->user()->id }}</p>
+                            <span class="badge bg-primary mb-3">{{ $UserDetailViewModel->user()->role }}</span>
                             <div class="d-flex justify-content-center gap-2">
                                 <button class="btn btn-outline-primary">
                                     <i class="fas fa-edit"></i> Chỉnh sửa
@@ -45,9 +45,9 @@
                             <h5 class="card-title">Thông tin chi tiết</h5>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p><strong>Email:</strong> nguyenvana@example.com</p>
-                                    <p><strong>Số điện thoại:</strong> 0123456789</p>
-                                    <p><strong>Ngày sinh:</strong> 01/01/1990</p>
+                                    <p><strong>Email:</strong> {{ $UserDetailViewModel->user()->email }}</p>
+                                    <p><strong>Số điện thoại:</strong> {{ $UserDetailViewModel->user()->number_phone }}</p>
+                                    <p><strong>Ngày vào hệ thống: </strong>{{ $UserDetailViewModel->user()->created_at->format('d/m/y') }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <p><strong>Giới tính:</strong> Nam</p>

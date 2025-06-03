@@ -5,7 +5,7 @@
         <div class="content-header">
             <h1>Danh sách người dùng</h1>
             <div class="header-actions">
-                <a href="users-create.html" class="btn btn-primary">
+                <a href="{{ route('admin.user.create') }}" class="btn btn-primary">
                     <i class="fas fa-user-plus me-2"></i>Thêm người dùng
                 </a>
             </div>
@@ -86,9 +86,9 @@
                             <td>{{ $user->created_at->format('d/m/Y') }}</td>
                             <td>
                                 <div class="action-buttons">
-                                    <button class="btn btn-sm btn-info" title="Xem chi tiết">
+                                    <a href="{{ route('admin.user.show', $user->id) }}"  class="btn btn-sm btn-info" title="Xem chi tiết">
                                         <i class="fas fa-eye"></i>
-                                    </button>
+                                    </a>
                                     <button class="btn btn-sm btn-warning" title="Chỉnh sửa">
                                         <i class="fas fa-edit"></i>
                                     </button>

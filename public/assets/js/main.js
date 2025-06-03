@@ -331,42 +331,7 @@ $(document).ready(function () {
         });
     }
 
-    // --- Add Subject (superadmin/addSubject.html) ---
-    $(document).on('submit', '#addSubjectForm', function(e) {
-        e.preventDefault();
-        let isValid = true;
-        $(this).find('[required]').each(function() {
-            if (!$(this).val().trim()) {
-                isValid = false;
-                $(this).addClass('is-invalid');
-            } else {
-                $(this).removeClass('is-invalid');
-            }
-        });
-        if (!isValid) {
-            alert('Vui lòng điền đầy đủ thông tin bắt buộc!');
-            return;
-        }
-        alert('Thêm môn học thành công!');
-        window.location.href = 'listSubject.html';
-    });
-
-    // --- Add Client (superadmin/addClient.html) ---
-    $(document).on('submit', '#addUserForm', function(e) {
-        e.preventDefault();
-        const password = $(this).find('[name="password"]').val();
-        const confirmPassword = $(this).find('[name="confirmPassword"]').val();
-        if (password !== confirmPassword) {
-            alert('Mật khẩu xác nhận không khớp!');
-            return;
-        }
-        if (password.length < 8) {
-            alert('Mật khẩu phải có ít nhất 8 ký tự!');
-            return;
-        }
-        alert('Thêm người dùng thành công!');
-        window.location.href = 'listClient.html';
-    });
+  
 
     // --- sendMail.html: Summernote, recipientType, scheduleEmail, template-card ---
     // Initialize rich text editor (sendMail.html)

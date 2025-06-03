@@ -1,10 +1,12 @@
-<?php 
+<?php
+
 namespace App\Domain\User\Actions;
 
 use App\Domain\User\Repositories\UserRepositoryInterface;
 
-Class DetailUserAction{
-protected $userRepository;
+class ShowUserAction
+{
+    protected $userRepository;
 
     public function __construct(UserRepositoryInterface $userRepository)
     {
@@ -17,10 +19,9 @@ protected $userRepository;
      * @param string $id
      * @return mixed
      */
-    public function execute(string $id)
+    
+    public function execute(int $id)
     {
         return $this->userRepository->getUserById($id);
     }
 }
-
-?>

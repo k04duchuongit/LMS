@@ -8,11 +8,11 @@ app/
 
 │       ├── DataTransferObjects/ # DTO - truyền dữ liệu sạch, không phụ thuộc framework
 
-│       ├── Entities/            # Thực thể nghiệp vụ (thuần logic, không liên quan DB)
+│       ├── Entities/            # Thực thể nghiệp vụ (thuần logic, không liên quan DB) (xử lý logic vd tăng giá sản phẩm,...)
 
 │       ├── Exceptions/          # Ngoại lệ riêng của domain (ví dụ: sản phẩm không tồn tại)
 
-│       └── Repositories/        # Interface định nghĩa truy xuất dữ liệu (sẽ  Infrastructure sẽ implement  ở đây)  - chứa các câu lệnh sql
+│       └── Repositories/        # Interface định nghĩa truy xuất dữ liệu (sẽ  Infrastructure sẽ implement  ở đây)  - Chứa các phương thức mẫu
 
 ├── Infrastructure/              # Tầng hạ tầng, xử lý giao tiếp DB, API, dịch vụ ngoài
 

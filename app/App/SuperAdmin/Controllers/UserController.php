@@ -2,9 +2,14 @@
 
 namespace App\App\SuperAdmin\Controllers;
 
-use App\Domain\User\Actions\ListUserAction;
-use App\App\SuperAdmin\ViewModels\UserViewModel;
+use App\App\SuperAdmin\Requests\FormCreateUser;
 use Illuminate\Http\Request;
+use App\Domain\User\Actions\ShowUserAction;
+
+use App\App\SuperAdmin\ViewModels\UserViewModel;
+use App\App\SuperAdmin\ViewModels\UserDetailViewModel;
+use App\Domain\User\Actions\StoreUserAction;
+use App\Domain\User\DTO\UserDto;
 
 class UserController
 {
@@ -13,7 +18,6 @@ class UserController
      */
     public function index(UserViewModel $userViewModel)
     {
-
         return view('supperadmin.client-v.manager-client', compact('userViewModel'));
     }
 
@@ -28,17 +32,20 @@ class UserController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FormCreateUser $FormCreateUser, StoreUserAction $storeUserAction)   //inject StoreUserAction để thực hiện lưu người dùng
     {
-        //
+        $dto = new UserDto(...$FormCreateUser->validated());  // ... là toán tử giải nén sẽ làm bung mảng ra thành các tham số tương ứng
+        $storeUserAction->execute($dto);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id, ShowUserAction $showUserAction)   //vì không thể inject UserDetailViewModel bởi nó cần tham số
     {
-        //
+        $UserDetailViewModel = new UserDetailViewModel($id, $showUserAction);   // nên phải khởi tạo nó ở đây
+
+        return view('supperadmin.client-v.detail-client', compact('UserDetailViewModel'));
     }
 
     /**
