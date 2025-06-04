@@ -8,16 +8,24 @@ use App\Domain\User\Actions\ShowUserAction;
 
 use App\App\SuperAdmin\ViewModels\UserViewModel;
 use App\App\SuperAdmin\ViewModels\UserDetailViewModel;
+use App\Domain\User\Actions\ListUserAction;
 use App\Domain\User\Actions\StoreUserAction;
-use App\Domain\User\DTO\UserDto;
+use App\Domain\User\DTO\UserListDto;
 
 class UserController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(UserViewModel $userViewModel)
+    public function index(ListUserAction $usersAction)
     {
+        //Users lúc này là 1 collection của User entity
+        $users =  $usersAction->execute();
+
+        $userViewModel = new UserViewModel($users);  // khởi tạo ViewModel với danh sách người dùng
+       dd($userViewModel->users());
+
+
         return view('supperadmin.client-v.manager-client', compact('userViewModel'));
     }
 
@@ -32,10 +40,18 @@ class UserController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(FormCreateUser $FormCreateUser, StoreUserAction $storeUserAction)   //inject StoreUserAction để thực hiện lưu người dùng
+    public function store(FormCreateUser $formCreateUser, StoreUserAction $storeUserAction)   //inject StoreUserAction để thực hiện lưu người dùng
     {
-        $dto = new UserDto(...$FormCreateUser->validated());  // ... là toán tử giải nén sẽ làm bung mảng ra thành các tham số tương ứng
+        $dto = new UserListDto(
+            fullName: $formCreateUser->input('fullName'),
+            email: $formCreateUser->input('email'),
+            number_phone: $formCreateUser->input('number_phone'),
+            role: $formCreateUser->input('role'),
+            avatar: $formCreateUser->file('avatar'),
+        );
+
         $storeUserAction->execute($dto);
+        return redirect()->route('admin.user.index')->with('success', 'Tạo người dùng thành công');
     }
 
     /**
@@ -51,9 +67,11 @@ class UserController
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id, ShowUserAction $showUserAction)
     {
-        //
+        $UserDetailViewModel = new UserDetailViewModel($id, $showUserAction);
+
+        return view('supperadmin.client-v.edit-client', compact('UserDetailViewModel'));
     }
 
     /**

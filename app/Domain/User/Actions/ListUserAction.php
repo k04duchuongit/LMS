@@ -19,6 +19,6 @@ class ListUserAction
      */
     public function execute()
     {
-        return $this->userRepository->getAll();
+        return $this->userRepository->getAll(); 
     }
 }

@@ -16,9 +16,10 @@ class FormCreateUser extends FormRequest
         return [
             'fullName' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email',
-            'number_phone'=> 'required|string|max:25|unique:users,number_phone',
+            'number_phone' => 'required|string|max:25|unique:users,number_phone',
             'password' => 'required|string|min:8',
             'role' => 'nullable|string|in:admin,lecturer,student',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:5120'
         ];
     }
 
@@ -51,6 +52,11 @@ class FormCreateUser extends FormRequest
             // role
             'role.string' => 'Vai trò phải là chuỗi ký tự.',
             'role.in' => 'Vai trò phải là một trong các giá trị: admin, lecturer, student.',
+
+            // image
+            'avatar.image' => 'Tệp tải lên phải là hình ảnh.',
+            'avatar.mimes' => 'Hình ảnh phải có định dạng: jpeg, png, jpg, gif.',
+            'avatar.max' => 'Kích thước hình ảnh không được vượt quá 5120 kilobytes.',
         ];
     }
 }

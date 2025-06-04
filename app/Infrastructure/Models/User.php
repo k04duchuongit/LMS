@@ -14,12 +14,15 @@ class User extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'number_phone',
-    ];
+protected $fillable = [
+    'name',
+    'email',
+    'password',
+    'number_phone',
+    'image',
+    'role',
+];
+
 
     /**
      * The attributes that should be hidden for serialization.

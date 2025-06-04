@@ -4,8 +4,8 @@
         <!-- Header -->
         <div class="content-header">
             <div class="header-left">
-                <h1>Thêm người dùng mới</h1>
-                <p class="text-muted">Tạo tài khoản mới cho người dùng hệ thống</p>
+                <h1>Sửa thông tin</h1>
+                <p class="text-muted">Sửa thông tin người dùng : {{ $UserDetailViewModel->user()->name }}</p>
             </div>
             <div class="header-right">
                 <div class="search-box">
@@ -41,7 +41,7 @@
                                     <div class="col-md-6">
                                         <label class="form-label">Họ và tên <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control @error('fullName') is-invalid @enderror"
-                                            name="fullName" value="{{ old('fullName') }}">
+                                            name="fullName" value="{{ $UserDetailViewModel->getName() }}">
                                         @error('fullName')
                                             <div class="text-danger small">{{ $message }}</div>
                                         @enderror
@@ -49,7 +49,7 @@
                                     <div class="col-md-6">
                                         <label class="form-label">Email <span class="text-danger">*</span></label>
                                         <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                            name="email" value="{{ old('email') }}">
+                                            name="email" value="{{ $UserDetailViewModel->getEmail() }}">
                                         @error('email')
                                             <div class="text-danger small">{{ $message }}</div>
                                         @enderror
@@ -58,19 +58,12 @@
                                         <label class="form-label">Số điện thoại <span class="text-danger">*</span></label>
                                         <input type="tel"
                                             class="form-control @error('number_phone') is-invalid @enderror"
-                                            name="number_phone" value="{{ old('number_phone') }}">
+                                            name="number_phone" value="{{ $UserDetailViewModel->getNumberPhone() }}">
                                         @error('number_phone')
                                             <div class="text-danger small">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Mật khẩu <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control @error('password') is-invalid @enderror"
-                                            name="password">
-                                        @error('password')
-                                            <div class="text-danger small">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+
                                     {{-- <div class="col-md-6">
                                     <label class="form-label">Xác nhận mật khẩu <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control @error('confirmPassword') is-invalid @enderror" name="confirmPassword">
@@ -89,11 +82,14 @@
                                         <label class="form-label">Vai trò <span class="text-danger">*</span></label>
                                         <select class="form-select @error('role') is-invalid @enderror" name="role">
                                             <option value="">Chọn vai trò</option>
-                                            <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Quản trị
+                                            <option value="admin" {{ $UserDetailViewModel->getRole('admin') }}>
+                                                Quản trị
                                                 viên</option>
-                                            <option value="lecturer" {{ old('role') == 'lecturer' ? 'selected' : '' }}>Giảng
+                                            <option value="lecturer" {{ $UserDetailViewModel->getRole('lecturer') }}>
+                                                Giảng
                                                 viên</option>
-                                            <option value="student" {{ old('role') == 'student' ? 'selected' : '' }}>Học
+                                            <option value="student" {{ $UserDetailViewModel->getRole('student') }}>
+                                                Học
                                                 viên</option>
                                         </select>
                                         @error('role')
@@ -109,17 +105,28 @@
                                 <div class="mb-3">
                                     <label class="form-label">Ảnh đại diện</label>
                                     <div class="d-flex align-items-center gap-3">
+                                        @if ($UserDetailViewModel->user()->image)
+                                            <div>
+                                                <img src="{{ asset($UserDetailViewModel->getAvatar()) }}"
+                                                    alt="Ảnh đại diện cũ"
+                                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid #ccc;">
+                                                <p class="small text-muted mt-1">Ảnh hiện tại</p>
+                                            </div>
+                                        @endif
                                         <div>
                                             <input type="file" class="form-control @error('avatar') is-invalid @enderror"
                                                 name="avatar">
                                             <p class="text-muted small mt-2">JPG, PNG hoặc GIF. Tối đa 2MB</p>
+
+                                            @error('avatar')
+                                                <div class="text-danger small">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
-                                        @error('avatar')
-                                            <div class="text-danger small">{{ $message }}</div>
-                                        @enderror
+
                                     </div>
                                 </div>
+
 
                             </div>
                             <!-- Nút điều khiển -->

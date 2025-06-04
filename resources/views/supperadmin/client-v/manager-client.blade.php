@@ -68,7 +68,7 @@
                             </td>
                             <td>
                                 <div class="user-info">
-                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User"
+                                    <img src="{{ asset($user->avatar) }}" alt="User"
                                         class="user-avatar">
                                     <div>
                                         <div class="user-name">{{ $user->name }}</div>
@@ -89,9 +89,9 @@
                                     <a href="{{ route('admin.user.show', $user->id) }}"  class="btn btn-sm btn-info" title="Xem chi tiết">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <button class="btn btn-sm btn-warning" title="Chỉnh sửa">
+                                    <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-sm btn-warning" title="Chỉnh sửa">
                                         <i class="fas fa-edit"></i>
-                                    </button>
+                                    </a>
                                     <button class="btn btn-sm btn-danger" title="Xóa">
                                         <i class="fas fa-trash"></i>
                                     </button>

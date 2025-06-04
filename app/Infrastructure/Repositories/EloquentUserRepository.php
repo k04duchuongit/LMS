@@ -2,15 +2,31 @@
 
 namespace App\Infrastructure\Repositories;
 
+use App\Domain\User\Entities\UserEntity;
 use App\Domain\User\Repositories\UserRepositoryInterface;
 use App\Infrastructure\Models\User;
+
+use function PHPSTORM_META\map;
 
 class EloquentUserRepository implements UserRepositoryInterface
 {
     public function getAll()
     {
         // Implementation for getting all users
-        return User::all();
+        $users =  User::all();
+
+        $users =  $users->map(function ($user) {   // Sử dụng map để chuyển đổi từng user thành UserEntity => trả về mảng users là 1 tập collection của UserEntity
+            return new UserEntity(
+                $user->name,
+                $user->email,
+                $user->number_phone,
+                $user->password,
+                $user->role,
+                $user->image
+            );
+        });
+
+        return $users;  // trả về danh sách người dùng
     }
 
     public function getUserById(int $id)
@@ -21,12 +37,26 @@ class EloquentUserRepository implements UserRepositoryInterface
 
     public function createUser($data)
     {
+        if ($data->avatar) {
+            // Lấy phần đuôi
+            $extension = $data->avatar->getClientOriginalExtension();
+
+            // Tạo tên file mới, ví dụ: user_123456789.jpg
+            $newFileName = $data->fullName . '_' . time() . '.' . $extension;
+
+            // Lưu file với tên mới vào thư mục avatars trong disk 'public'
+            $filePath = $data->avatar->storeAs('avatars', $newFileName, 'public');
+
+            // Lưu đường dẫn file vào biến (đường dẫn dùng trong view là dạng 'storage/avatars/xxx.jpg')
+            $data->avatar = 'storage/' . $filePath;
+        }
 
         return User::create([
             'name' => $data->fullName,
             'email' => $data->email,
             'password' => bcrypt($data->password),
             'number_phone' => $data->number_phone,
+            'image' => $data->avatar ?? null,
             'role' => $data->role ?? null,
         ]);
     }
