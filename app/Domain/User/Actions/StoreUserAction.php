@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace App\Domain\User\Actions;
 
 use App\Domain\User\Entities\UserEntity;
@@ -12,22 +13,24 @@ class StoreUserAction
     {
         $this->userRepository = $userRepository;
     }
-    
+
     public function execute($dto)
     {
         // Chuyển đổi DTO thành Entity
-        $userEntity = new UserEntity(    // Tạo một đối tượng UserEntity
+        $userEntity = new UserEntity(
+            null,                         // id lúc tạo mới chưa có
             $dto->fullName,
             $dto->email,
-            $dto->password,
             $dto->number_phone,
-            $dto->role
+            $dto->password,
+            $dto->role,
+            $dto->avatar ?? null,         // ảnh có thể null
+            null,                         // createdAt lúc tạo mới null
+            null                          // updatedAt lúc tạo mới null
         );
 
+
         // Lưu người dùng thông qua repository
-        return $this->userRepository->createUser($dto);
+        return $this->userRepository->createUser($userEntity);
     }
-
 }
-
-?>

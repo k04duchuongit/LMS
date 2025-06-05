@@ -17,12 +17,15 @@ class EloquentUserRepository implements UserRepositoryInterface
 
         $users =  $users->map(function ($user) {   // Sử dụng map để chuyển đổi từng user thành UserEntity => trả về mảng users là 1 tập collection của UserEntity
             return new UserEntity(
+                $user->id,
                 $user->name,
                 $user->email,
                 $user->number_phone,
                 $user->password,
                 $user->role,
-                $user->image
+                $user->image,
+                $user->created_at->toImmutable(),
+                $user->updated_at->toImmutable()
             );
         });
 
@@ -31,8 +34,21 @@ class EloquentUserRepository implements UserRepositoryInterface
 
     public function getUserById(int $id)
     {
-        // Implementation for getting a user by ID
-        return User::find($id);
+        $user = User::find($id);
+
+        $user = new UserEntity(
+            $user->id,
+            $user->name,
+            $user->email,
+            $user->number_phone,
+            $user->password,
+            $user->role,
+            $user->image,
+            $user->created_at->toImmutable(),  // Chuyển đổi sang định dạng chuỗi
+            $user->updated_at->toImmutable()
+        );
+
+        return $user;
     }
 
     public function createUser($data)

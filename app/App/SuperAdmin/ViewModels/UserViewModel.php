@@ -11,20 +11,12 @@ class UserViewModel
     protected Collection $users;  // khai báo thuộc tính users là một Collection
     public function __construct($users)
     {
-
-        $this->users = $users->map(function ($user) {
-            return new UserListDto(
-                $user->getFullName(),
-                $user->getEmail(),
-                $user->getNumberPhone(),
-                $user->getRole(),
-                $user->getAvatar()
-            );
-        });
+        $this->users = $users;
     }
 
     public function users(): Collection
     {
         return $this->users;
     }
+
 }

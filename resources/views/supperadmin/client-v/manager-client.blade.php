@@ -56,7 +56,7 @@
                         <th>Email</th>
                         <th style="width: 100px;">Vai trò</th>
                         <th style="width: 120px;">Trạng thái</th>
-                        <th style="width: 100px;">Ngày tạo</th>
+                        <th style="width: 120px;">Ngày tạo</th>
                         <th style="width: 120px;">Thao tác</th>
                     </tr>
                 </thead>
@@ -68,28 +68,28 @@
                             </td>
                             <td>
                                 <div class="user-info">
-                                    <img src="{{ asset($user->avatar) }}" alt="User"
+                                    <img src="{{ asset($user->getAvatar()) }}" alt="User"
                                         class="user-avatar">
                                     <div>
-                                        <div class="user-name">{{ $user->name }}</div>
-                                        <div class="user-id">ID: {{ $user->id }}</div>
+                                        <div class="user-name">{{ $user->getFullName() }}</div>
+                                        <div class="user-id">ID: {{ $user->getId() }}</div>
                                     </div>
                                 </div>
                             </td>
-                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->getEmail() }}</td>
                             <td>
-                                <span class="badge bg-primary">{{ $user->role }}</span>
+                                <span class="badge bg-primary">{{ $user->getRole()}}</span>
                             </td>
                             <td>
                                 <span class="badge bg-success">Đang hoạt động</span>
                             </td>
-                            <td>{{ $user->created_at->format('d/m/Y') }}</td>
+                            <td>{{ $user->getCreatedAt() }}</td>
                             <td>
                                 <div class="action-buttons">
-                                    <a href="{{ route('admin.user.show', $user->id) }}"  class="btn btn-sm btn-info" title="Xem chi tiết">
+                                    <a href="{{ route('admin.user.show', $user->getId()) }}"  class="btn btn-sm btn-info" title="Xem chi tiết">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-sm btn-warning" title="Chỉnh sửa">
+                                    <a href="{{ route('admin.user.edit', $user->getId()) }}" class="btn btn-sm btn-warning" title="Chỉnh sửa">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <button class="btn btn-sm btn-danger" title="Xóa">

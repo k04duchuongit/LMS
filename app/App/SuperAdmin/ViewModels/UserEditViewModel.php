@@ -5,7 +5,7 @@ namespace App\App\SuperAdmin\ViewModels;
 use App\Domain\User\Actions\ShowUserAction;
 use App\Domain\User\DTO\UserDetailDto;
 
-class UserDetailViewModel
+class UserEditViewModel
 {
     protected $user;
 
@@ -14,45 +14,45 @@ class UserDetailViewModel
         $this->user = $user;
     }
 
-    public function user()   // Đây trả về đối tượng entity
+    public function user()
     {
         return $this->user;
     }
 
-
-    // Thực hiện lấy dữ liệu từ entity ra ngoài
-    public function getId(){
-        return $this->user->id();
+    /////
+    public function getId()
+    {
+        return $this->user->getId();
     }
 
     public function getAvatar()
     {
-        return $this->user->image ? asset($this->user->image) : asset('storage/avatars/default-avatar.avif');
+        return $this->user->getAvatar() ? asset($this->user->getAvatar()) : asset('storage/avatars/default-avatar.avif');
     }
 
     public function getName()
     {
-        $current = old('fullName') ?? $this->user->name;
+        $current = old('fullName') ?? $this->user->getFullName();
         return $current;
     }
     public function getEmail()
     {
-        $current = old('email') ?? $this->user->email;
+        $current = old('email') ?? $this->user->getEmail();
         return $current;
     }
     public function getNumberPhone()
     {
-        $current = old('number_phone') ?? $this->user->number_phone;
+        $current = old('number_phone') ?? $this->user->getNumberPhone();
         return $current;
     }
 
     public function getRole($role = null)  // nhận role ở option hiện tại và so sánh với dữ liệu cũ nếu trùng => selected
     {
         if (!$role) {
-            $role = old('role') ?? $this->user->role;  // nếu không có role thì lấy từ old hoặc từ dữ liệu cũ
+            $role = old('role') ?? $this->user->getRole();  // nếu không có role thì lấy từ old hoặc từ dữ liệu cũ
         }
 
-        $current = old('role') ?? $this->user->role;
+        $current = old('role') ?? $this->user->getRole();
 
         return $current === $role ? 'selected' : '';
     }

@@ -2,7 +2,7 @@
 
 namespace App\Domain\User\DTO;
 
-class UserListDto
+class UserDetailDto
 {
     public $id;
     public string $fullName;

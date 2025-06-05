@@ -2,17 +2,17 @@
 
 namespace App\Domain\User\DTO;
 
-class UserListDto
+class UserUpdateDto
 {
-    public $id;
+    public int $id;
     public string $fullName;
     public string $email;
     public string $number_phone;
-    public $role = null;
+    public ?string $role = null;
     public $avatar = null;
-    public string $created_at;
+    public ?string $created_at = null;
 
-    public function __construct($id, string $fullName, string $email, string $number_phone, ?string $role = null, $avatar = null, $created_at)
+    public function __construct(int $id,string $fullName, string $email, string $number_phone, ?string $role = null, $avatar = null)
     {
         $this->id = $id;
         $this->fullName = $fullName;
@@ -20,6 +20,5 @@ class UserListDto
         $this->number_phone = $number_phone;
         $this->role = $role;
         $this->avatar = $avatar;
-        $this->created_at = $created_at;
     }
 }
