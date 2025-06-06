@@ -10,7 +10,7 @@ class UserListDto
     public string $number_phone;
     public $role = null;
     public $avatar = null;
-    public string $created_at;
+    public ?string $created_at;
 
     public function __construct($id, string $fullName, string $email, string $number_phone, ?string $role = null, $avatar = null, $created_at)
     {

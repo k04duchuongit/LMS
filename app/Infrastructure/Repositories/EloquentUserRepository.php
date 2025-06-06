@@ -5,6 +5,7 @@ namespace App\Infrastructure\Repositories;
 use App\Domain\User\Entities\UserEntity;
 use App\Domain\User\Repositories\UserRepositoryInterface;
 use App\Infrastructure\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 use function PHPSTORM_META\map;
 
@@ -77,10 +78,30 @@ class EloquentUserRepository implements UserRepositoryInterface
         ]);
     }
 
-    public function updateUser(int $id, $data)
+    public function updateUser(int $id, $entity)
     {
-        // Implementation for updating an existing user
-        return null;
+        $user = User::findOrFail($id);
+
+        $user->full_name = $entity->getFullName();
+        $user->email = $entity->getEmail();
+        $user->number_phone = $entity->getNumberPhone();
+        $user->role = $entity->getRole();
+
+
+        if ($entity->getAvatar()) {
+            if ($user->avatar && Storage::disk('public')->exists(str_replace('storage/', '', $user->avatar))) {
+                Storage::disk('public')->delete(str_replace('storage/', '', $user->avatar));
+            }
+
+            //cho ảnh vào kho
+            $extension = $entity->getAvatar()->getClientOriginalExtension();
+            $newFileName = $entity->getFullName() . '_' . time() . '.' . $extension;
+            $filePath = $entity->getAvatar()->storeAs('avatars', $newFileName, 'public');
+            $user->avatar = 'storage/' . $filePath;
+            //xóa ảnh cũ
+        }
+
+        return $user->save();
     }
 
     public function deleteUser(int $id)

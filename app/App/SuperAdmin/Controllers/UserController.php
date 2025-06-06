@@ -3,6 +3,7 @@
 namespace App\App\SuperAdmin\Controllers;
 
 use App\App\SuperAdmin\Requests\FormCreateUser;
+use App\App\SuperAdmin\Requests\FormUpdateUser;
 use Illuminate\Http\Request;
 use App\Domain\User\Actions\ShowUserAction;
 
@@ -11,6 +12,7 @@ use App\App\SuperAdmin\ViewModels\UserDetailViewModel;
 use App\App\SuperAdmin\ViewModels\UserEditViewModel;
 use App\Domain\User\Actions\ListUserAction;
 use App\Domain\User\Actions\StoreUserAction;
+use App\Domain\User\Actions\UpdateUserAction;
 use App\Domain\User\DTO\UserCreateDto;
 use App\Domain\User\DTO\UserUpdateDto;
 
@@ -82,18 +84,19 @@ class UserController
     /**
      * Update the specified resource in storage.
      */
-    public function update(int $id)
+    public function update(int $id, FormUpdateUser $formCreateUser, UpdateUserAction $updateUserAction)
     {
-        // $dto = new UserUpdateDto(
-        //     id: $id,
-        //     fullName: $formCreateUser->input('fullName'),
-        //     email: $formCreateUser->input('email'),
-        //     number_phone: $formCreateUser->input('number_phone'),
-        //     role: $formCreateUser->input('role'),
-        //     avatar: $formCreateUser->file('avatar'),
-        // );
+        $dto = new UserUpdateDto(
+            id: $id,
+            fullName: $formCreateUser->input('fullName'),
+            email: $formCreateUser->input('email'),
+            number_phone: $formCreateUser->input('number_phone'),
+            role: $formCreateUser->input('role'),
+            avatar: $formCreateUser->file('avatar'),
+            updated_at : now()
+        );
 
-        dd("123");
+        $updateUserAction->execute($dto);
     }
 
     /**

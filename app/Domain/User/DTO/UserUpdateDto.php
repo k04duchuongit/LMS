@@ -10,9 +10,9 @@ class UserUpdateDto
     public string $number_phone;
     public ?string $role = null;
     public $avatar = null;
-    public ?string $created_at = null;
+    public ?string $updated_at = null;
 
-    public function __construct(int $id,string $fullName, string $email, string $number_phone, ?string $role = null, $avatar = null)
+    public function __construct(int $id, string $fullName, string $email, string $number_phone, ?string $role = null, $avatar = null, string $updated_at)
     {
         $this->id = $id;
         $this->fullName = $fullName;
@@ -20,5 +20,6 @@ class UserUpdateDto
         $this->number_phone = $number_phone;
         $this->role = $role;
         $this->avatar = $avatar;
+        $this->updated_at = $updated_at;
     }
 }
