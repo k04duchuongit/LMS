@@ -1,12 +1,10 @@
 <?php
 
 namespace App\App\SuperAdmin\Controllers;
-
 use App\App\SuperAdmin\Requests\FormCreateUser;
 use App\App\SuperAdmin\Requests\FormUpdateUser;
 use Illuminate\Http\Request;
 use App\Domain\User\Actions\ShowUserAction;
-
 use App\App\SuperAdmin\ViewModels\UserViewModel;
 use App\App\SuperAdmin\ViewModels\UserDetailViewModel;
 use App\App\SuperAdmin\ViewModels\UserEditViewModel;
