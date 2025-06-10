@@ -14,6 +14,7 @@ use App\Domain\User\Actions\ListUserAction;
 use App\Domain\User\Actions\StoreUserAction;
 use App\Domain\User\Actions\UpdateUserAction;
 use App\Domain\User\DTO\UserCreateDto;
+use App\Domain\User\DTO\UserEditDto;
 use App\Domain\User\DTO\UserUpdateDto;
 
 class UserController
@@ -23,12 +24,14 @@ class UserController
      */
     public function index(ListUserAction $usersAction)
     {
-        //Users lúc này là 1 collection của User entity
-        $users =  $usersAction->execute();
 
-        $userViewModel = new UserViewModel($users);  // khởi tạo ViewModel với danh sách người dùng
+        $users =  $usersAction->execute();                  //Users lúc này là 1 collection dto
 
-        return view('supperadmin.client-v.manager-client', compact('userViewModel'));
+        $usersViewModel = $users->map(function ($user) {    // chuyển Dto sang viewmodel để dùng phương thức của viewmodel
+            return new UserViewModel($user);
+        });
+
+        return view('supperadmin.client-v.manager-client', compact('usersViewModel'));
     }
 
     /**
@@ -62,9 +65,7 @@ class UserController
     public function show(int $id, ShowUserAction $showUserAction)
     {
         $user = $showUserAction->execute($id);
-
-        $UserDetailViewModel = new UserDetailViewModel($user);  // khởi tạo ViewModel với danh sách người dùng
-
+        $UserDetailViewModel = new UserDetailViewModel($user);  // khởi tạo ViewModel 
 
         return view('supperadmin.client-v.detail-client', compact('UserDetailViewModel'));
     }
@@ -72,10 +73,9 @@ class UserController
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(int $id, ShowUserAction $showUserAction)
+    public function edit(int $id, ShowUserAction $ShowUserAction)
     {
-        $user = $showUserAction->execute($id);
-
+        $user = $ShowUserAction->execute($id);
         $UserEditViewModel = new UserEditViewModel($user);
 
         return view('supperadmin.client-v.edit-client', compact('UserEditViewModel'));
@@ -86,6 +86,7 @@ class UserController
      */
     public function update(int $id, FormUpdateUser $formCreateUser, UpdateUserAction $updateUserAction)
     {
+        
         $dto = new UserUpdateDto(
             id: $id,
             fullName: $formCreateUser->input('fullName'),
@@ -93,9 +94,8 @@ class UserController
             number_phone: $formCreateUser->input('number_phone'),
             role: $formCreateUser->input('role'),
             avatar: $formCreateUser->file('avatar'),
-            updated_at : now()
+            updated_at: now()
         );
-
         $updateUserAction->execute($dto);
     }
 

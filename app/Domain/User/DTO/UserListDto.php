@@ -2,6 +2,8 @@
 
 namespace App\Domain\User\DTO;
 
+use App\Domain\User\Entities\UserEntity;
+
 class UserListDto
 {
     public $id;
@@ -21,5 +23,18 @@ class UserListDto
         $this->role = $role;
         $this->avatar = $avatar;
         $this->created_at = $created_at;
+    }
+
+    public static function setDataDto(UserEntity $userEntity) 
+    {
+        return new self(
+            $userEntity->getId(),
+            $userEntity->getFullName(),
+            $userEntity->getEmail(),
+            $userEntity->getNumberPhone(),
+            $userEntity->getRole(),
+            $userEntity->getAvatar(),
+            $userEntity->getCreatedAt(),
+        );
     }
 }

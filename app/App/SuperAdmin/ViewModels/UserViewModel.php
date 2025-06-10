@@ -8,15 +8,49 @@ use Illuminate\Support\Collection;
 
 class UserViewModel
 {
-    protected Collection $users;  // khai báo thuộc tính users là một Collection
-    public function __construct($users)
+    public $user;
+    public function __construct($user)
     {
-        $this->users = $users;
+        $this->user = $user;
     }
 
-    public function users(): Collection
+    public function users()
     {
-        return $this->users;
+        return $this->user;
     }
 
+    public function getId(): string
+    {
+        return $this->user->id;
+    }
+
+    public function getFullName(): string
+    {
+        return $this->user->fullName;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->user->email;
+    }
+
+    public function getNumberPhone(): string
+    {
+        return $this->user->number_phone;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->user->role;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return asset($this->user->avatar ?? 'storage/avatar/default-avatar.avif'); // chuyển từ path trong storage sang URL đầy đủ
+    }
+
+    public function getCreatedAt(): string
+    {
+        return \Carbon\Carbon::parse($this->user->created_at)->format('d/m/Y H:i');
+    }
 }

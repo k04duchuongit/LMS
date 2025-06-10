@@ -61,14 +61,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($userViewModel->users() as $user)
+                    @foreach ($usersViewModel as $user)
                         <tr>
                             <td>
                                 <input type="checkbox" class="form-check-input">
                             </td>
                             <td>
                                 <div class="user-info">
-                                    <img src="{{ asset($user->getAvatar()) }}" alt="User"
+                                    <img src="{{ $user->getAvatar() }}" alt="User"
                                         class="user-avatar">
                                     <div>
                                         <div class="user-name">{{ $user->getFullName() }}</div>
