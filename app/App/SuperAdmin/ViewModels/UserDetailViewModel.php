@@ -21,43 +21,35 @@ class UserDetailViewModel
 
 
     // Thực hiện lấy dữ liệu từ entity ra ngoài
-    public function getId(){
-        return $this->user->id();
+    public function getId(): string
+    {
+        return $this->user->id;
     }
 
-    public function getAvatar()
+    public function getAvatar(): ?string
     {
-        return $this->user->image ? asset($this->user->image) : asset('storage/avatars/default-avatar.avif');
+        return asset($this->user->avatar ?? 'storage/avatar/default-avatar.avif'); // chuyển từ path trong storage sang URL đầy đủ
+    }
+    public function getFullName(): string
+    {
+        return $this->user->fullName;
+    }
+    public function getEmail(): string
+    {
+        return $this->user->email;
     }
 
-    public function getName()
+    public function getNumberPhone(): string
     {
-        $current = old('fullName') ?? $this->user->name;
-        return $current;
-    }
-    public function getEmail()
-    {
-        $current = old('email') ?? $this->user->email;
-        return $current;
-    }
-    public function getNumberPhone()
-    {
-        $current = old('number_phone') ?? $this->user->number_phone;
-        return $current;
+        return $this->user->number_phone;
     }
 
-    public function getRole($role = null)  // nhận role ở option hiện tại và so sánh với dữ liệu cũ nếu trùng => selected
+    public function getRole(): ?string
     {
-        if (!$role) {
-            $role = old('role') ?? $this->user->role;  // nếu không có role thì lấy từ old hoặc từ dữ liệu cũ
-        }
-
-        $current = old('role') ?? $this->user->role;
-
-        return $current === $role ? 'selected' : '';
+        return $this->user->role;
     }
-    public function getCreatedAt()
+    public function getCreatedAt(): string
     {
-        return $this->user->created_at->format('d/m/Y');
+        return \Carbon\Carbon::parse($this->user->created_at)->format('d/m/Y H:i');
     }
 }

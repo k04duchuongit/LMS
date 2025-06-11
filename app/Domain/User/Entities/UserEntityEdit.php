@@ -2,24 +2,25 @@
 
 namespace App\Domain\User\Entities;
 
-final class UserEntityUpdate
+final class UserEntityEdit
 {
-    private string $id;
+    private ?string $id;
     private string $fullName;
     private string $email;
     private string $numberPhone;
     private string $role;
     private ?string $image;
-    private \DateTimeImmutable $updatedAt;
+
+    private ?\DateTimeImmutable $updatedAt;
 
     public function __construct(
-        string $id,
+        ?string $id = null,
         string $fullName,
         string $email,
         string $numberPhone,
         string $role,
         ?string $image = null,
-        ?\DateTimeImmutable $updatedAt,
+        ?\DateTimeImmutable $updatedAt = null,
 
     ) {
         $this->id = $id;

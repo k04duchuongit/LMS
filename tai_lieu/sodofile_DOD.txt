@@ -65,3 +65,7 @@ Các key cần phải nhớ
 - Domains                                                   ## Tổ chức codebase tách biệt
 - Use Case hay Actions                                      ## Tách C_R_U_D ra từng class riêng
 - Command Bus Design Pattern                                ## Kée hợp các kiến thức ở bên trên
+
+
+
+CÔNG VIỆC : ĐÃ TRẢ VỀ DTO Ở UpdateUserAction, bây giờ lấy để render ra viewmodel 

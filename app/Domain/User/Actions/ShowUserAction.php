@@ -2,6 +2,7 @@
 
 namespace App\Domain\User\Actions;
 
+use App\Domain\User\DTO\UserDetailDto;
 use App\Domain\User\Repositories\UserRepositoryInterface;
 
 class ShowUserAction
@@ -19,9 +20,11 @@ class ShowUserAction
      * @param string $id
      * @return mixed
      */
-    
+
     public function execute(int $id)
     {
-        return $this->userRepository->getUserById($id);
+        $user = $this->userRepository->getUserById($id);
+
+        return $user = UserDetailDto::setDataDto($user);
     }
 }

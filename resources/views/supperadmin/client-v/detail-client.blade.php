@@ -21,11 +21,11 @@
                 <div class="col-md-4">
                     <div class="card user-profile-section">
                         <div class="card-body text-center">
-                            <img src="{{ asset($UserDetailViewModel->user()->getAvatar()) }}" alt="User Avatar"
+                            <img src="{{ asset($UserDetailViewModel->getAvatar()) }}" alt="User Avatar"
                                 class="rounded-circle mb-3" style="width: 120px; height: 120px;">
-                            <h4 class="mb-1">{{ $UserDetailViewModel->user()->getFullName() }}</h4>
-                            <p class="text-muted mb-3">ID: {{ $UserDetailViewModel->user()->getID() }}</p>
-                            <span class="badge bg-primary mb-3">{{ $UserDetailViewModel->user()->getRole() }}</span>
+                            <h4 class="mb-1">{{ $UserDetailViewModel->getFullName() }}</h4>
+                            <p class="text-muted mb-3">ID: {{ $UserDetailViewModel->getID() }}</p>
+                            <span class="badge bg-primary mb-3">{{ $UserDetailViewModel->getRole() }}</span>
                             <div class="d-flex justify-content-center gap-2">
                                 <button class="btn btn-outline-primary">
                                     <i class="fas fa-edit"></i> Chỉnh sửa
@@ -45,10 +45,10 @@
                             <h5 class="card-title">Thông tin chi tiết</h5>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p><strong>Email:</strong> {{ $UserDetailViewModel->user()->getEmail() }}</p>
-                                    <p><strong>Số điện thoại:</strong> {{ $UserDetailViewModel->user()->getNumberPhone() }}</p>
+                                    <p><strong>Email:</strong> {{ $UserDetailViewModel->getEmail() }}</p>
+                                    <p><strong>Số điện thoại:</strong> {{ $UserDetailViewModel->getNumberPhone() }}</p>
                                     <p><strong>Ngày vào hệ thống:
-                                        </strong>{{ $UserDetailViewModel->user()->getCreatedAt() }}</p>
+                                        </strong>{{ $UserDetailViewModel->getCreatedAt() }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <p><strong>Giới tính:</strong> Nam</p>
