@@ -3,6 +3,7 @@
     <div class="main-content">
         <!-- Header -->
         <div class="content-header">
+
             <h1>Danh sách người dùng</h1>
             <div class="header-actions">
                 <a href="{{ route('admin.user.create') }}" class="btn btn-primary">
@@ -14,6 +15,11 @@
         <!-- Filters -->
         <div class="filters-section">
             <div class="row g-3">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="col-md-4">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
@@ -68,8 +74,7 @@
                             </td>
                             <td>
                                 <div class="user-info">
-                                    <img src="{{ $user->getAvatar() }}" alt="User"
-                                        class="user-avatar">
+                                    <img src="{{ $user->getAvatar() }}" alt="User" class="user-avatar">
                                     <div>
                                         <div class="user-name">{{ $user->getFullName() }}</div>
                                         <div class="user-id">ID: {{ $user->getId() }}</div>
@@ -78,7 +83,7 @@
                             </td>
                             <td>{{ $user->getEmail() }}</td>
                             <td>
-                                <span class="badge bg-primary">{{ $user->getRole()}}</span>
+                                <span class="badge bg-primary">{{ $user->getRole() }}</span>
                             </td>
                             <td>
                                 <span class="badge bg-success">Đang hoạt động</span>
@@ -86,20 +91,30 @@
                             <td>{{ $user->getCreatedAt() }}</td>
                             <td>
                                 <div class="action-buttons">
-                                    <a href="{{ route('admin.user.show', $user->getId()) }}"  class="btn btn-sm btn-info" title="Xem chi tiết">
+                                    <a href="{{ route('admin.user.show', $user->getId()) }}" class="btn btn-sm btn-info"
+                                        title="Xem chi tiết">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('admin.user.edit', $user->getId()) }}" class="btn btn-sm btn-warning" title="Chỉnh sửa">
+                                    <a href="{{ route('admin.user.edit', $user->getId()) }}" class="btn btn-sm btn-warning"
+                                        title="Chỉnh sửa">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <button class="btn btn-sm btn-danger" title="Xóa">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+
+                                    <form action="{{ route('admin.user.destroy', $user->getId()) }}" method="POST"
+                                        onsubmit="return confirm('Bạn có chắc chắn muốn xoá?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-danger" title="Xóa">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+
+
                                 </div>
                             </td>
                         </tr>
                     @endforeach
-                    
+
                 </tbody>
             </table>
         </div>

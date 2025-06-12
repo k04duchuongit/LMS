@@ -51,16 +51,30 @@ class EloquentUserRepository implements UserRepositoryInterface
         return $user;
     }
 
-    public function createUser($data)
+    public function createUser($dto)
     {
-        return User::create([
-            'name' => $data->fullName,
-            'email' => $data->email,
-            'password' => bcrypt($data->password),
-            'number_phone' => $data->number_phone,
-            'image' => $data->avatar ?? null,
-            'role' => $data->role ?? null,
-        ]);
+        $user = new User();
+
+        $user->name = $dto->fullName;
+        $user->email = $dto->email;
+        $user->number_phone = $dto->number_phone;
+        $user->image = $dto->avatar;
+        $user->role = $dto->role;
+        $user->password = bcrypt($dto->password);
+        $user->created_at =  $dto->created_at;
+        $user->save();
+
+        return new UserEntity(
+            $user->id,
+            $user->name,
+            $user->email,
+            $user->number_phone,
+            $user->password,
+            $user->role,
+            $user->image,
+            $user->created_at->toImmutable(),
+            $user->updated_at->toImmutable()
+        );
     }
 
     public function updateUser(int $id, $dto)
@@ -75,7 +89,7 @@ class EloquentUserRepository implements UserRepositoryInterface
         $user->updated_at = $dto->updated_at;
         $user->save();
 
-        return new UserEntity(   
+        return new UserEntity(
             $user->id,
             $user->name,
             $user->email,
@@ -90,7 +104,7 @@ class EloquentUserRepository implements UserRepositoryInterface
 
     public function deleteUser(int $id)
     {
-        // Implementation for deleting a user by ID
-        return null;
+        $user = User::findOrFail($id);
+        $user->delete();
     }
 };

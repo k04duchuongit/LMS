@@ -37,6 +37,11 @@
                             @method('PUT')
                             <!-- Thông tin cơ bản -->
                             <div class="mb-4">
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
                                 <h5 class="card-title mb-3">Thông tin cơ bản</h5>
                                 <div class="row g-3">
                                     <div class="col-md-6">
@@ -131,11 +136,11 @@
                             </div>
                             <!-- Nút điều khiển -->
                             <div class="d-flex justify-content-end gap-2">
-                                <a href="{{ route('admin.user.index', $UserEditViewModel->getID()) }}" class="btn btn-light"
-                                    onclick="window.location.href='listClient.html'">
+                                <a href="{{ route('admin.user.index', $UserEditViewModel->getID()) }}"
+                                    class="btn btn-light" onclick="window.location.href='listClient.html'">
                                     <i class="fas fa-times me-2"></i>Hủy
-                                </button>
-                                <a type="submit" class="btn btn-primary">
+                                </a>
+                                <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-save me-2"></i>Lưu thông tin
                                 </button>
                             </div>

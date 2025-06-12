@@ -9,6 +9,7 @@ use App\Domain\User\Actions\ShowUserAction;
 use App\App\SuperAdmin\ViewModels\UserViewModel;
 use App\App\SuperAdmin\ViewModels\UserDetailViewModel;
 use App\App\SuperAdmin\ViewModels\UserEditViewModel;
+use App\Domain\User\Actions\DeleteUserAction;
 use App\Domain\User\Actions\ListUserAction;
 use App\Domain\User\Actions\StoreUserAction;
 use App\Domain\User\Actions\UpdateUserAction;
@@ -55,6 +56,7 @@ class UserController
             role: $formCreateUser->input('role'),
             password: $formCreateUser->input('password'),
             avatar: $formCreateUser->file('avatar'),
+            created_at: now()
         );
 
         $storeUserAction->execute($dto);
@@ -98,18 +100,19 @@ class UserController
             avatar: $formCreateUser->file('avatar'),
             updated_at: now()
         );
-        
+
         $userUpdateDto =  $updateUserAction->execute($dto);
         $UserEditViewModel =  new UserEditViewModel($userUpdateDto);
 
-        return view('supperadmin.client-v.edit-client', compact('UserEditViewModel'));
+        return redirect()->route('admin.user.edit', $id)->with('success', 'Cập nhật thành công');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id, DeleteUserAction $deleteUserAction)
     {
-        //
+        $deleteUserAction->execute($id);
+        return redirect()->route('admin.user.index', $id)->with('success', 'Xóa người dùng thành công');
     }
 }

@@ -11,9 +11,9 @@ class UserCreateDto
     public string $password;
     public ?string $role = null;
     public $avatar = null;
-    public ?string $created_at = null;
+    public $created_at = null;
 
-    public function __construct(string $fullName, string $email, string $number_phone, string $password, ?string $role = null, $avatar = null, ?string $created_at = null)
+    public function __construct(string $fullName, string $email, string $number_phone, string $password, ?string $role = null, $avatar = null, $created_at = null)
     {
         $this->fullName = $fullName;
         $this->email = $email;
