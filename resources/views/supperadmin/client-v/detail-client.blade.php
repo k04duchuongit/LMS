@@ -27,12 +27,12 @@
                             <p class="text-muted mb-3">ID: {{ $UserDetailViewModel->getID() }}</p>
                             <span class="badge bg-primary mb-3">{{ $UserDetailViewModel->getRole() }}</span>
                             <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-outline-primary">
+                                <a href="{{ route('admin.user.edit',  $UserDetailViewModel->getID()) }}" class="btn btn-outline-primary">
                                     <i class="fas fa-edit"></i> Chỉnh sửa
-                                </button>
-                                <button class="btn btn-outline-danger">
+                                </a>
+                                <a href="{{ route('admin.user.destroy',  $UserDetailViewModel->getID()) }}" class="btn btn-outline-danger">
                                     <i class="fas fa-trash"></i> Xóa
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

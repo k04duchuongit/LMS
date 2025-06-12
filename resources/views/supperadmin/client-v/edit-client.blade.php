@@ -131,11 +131,11 @@
                             </div>
                             <!-- Nút điều khiển -->
                             <div class="d-flex justify-content-end gap-2">
-                                <button type="button" class="btn btn-light"
+                                <a href="{{ route('admin.user.index', $UserEditViewModel->getID()) }}" class="btn btn-light"
                                     onclick="window.location.href='listClient.html'">
                                     <i class="fas fa-times me-2"></i>Hủy
                                 </button>
-                                <button type="submit" class="btn btn-primary">
+                                <a type="submit" class="btn btn-primary">
                                     <i class="fas fa-save me-2"></i>Lưu thông tin
                                 </button>
                             </div>

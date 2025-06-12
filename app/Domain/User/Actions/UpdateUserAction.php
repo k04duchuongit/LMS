@@ -36,7 +36,6 @@ class UpdateUserAction
         }
 
         $userEntity = $this->userRepository->updateUser($dto->id, $dto); // thực hiện cập nhật & trả về entity user
-        dd(UserUpdateDto::setDataDto($userEntity));
         return UserUpdateDto::setDataDto($userEntity);
 
         //END

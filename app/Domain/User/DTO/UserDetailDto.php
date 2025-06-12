@@ -25,7 +25,7 @@ class UserDetailDto
         $this->created_at = $created_at;
     }
 
-     public static function setDataDto(UserEntity $userEntity) 
+    public static function setDataDto(UserEntity $userEntity)
     {
         return new self(
             $userEntity->getId(),
