@@ -7,6 +7,7 @@ interface UserRepositoryInterface
 
     public function getAll();
 
+    public function paginate($perPage, $dtoSearch);
 
     public function getUserById(int $id);
 

@@ -5,6 +5,7 @@ namespace App\Infrastructure\Repositories;
 use App\Domain\User\Entities\UserEntity;
 use App\Domain\User\Repositories\UserRepositoryInterface;
 use App\Infrastructure\Models\User;
+use App\Infrastructure\Support\PaginatorTransformer;
 use Illuminate\Support\Facades\Storage;
 
 use function PHPSTORM_META\map;
@@ -15,6 +16,7 @@ class EloquentUserRepository implements UserRepositoryInterface
     {
 
         $users =  User::all();
+
         $users =  $users->map(function ($user) {   // Sử dụng map để chuyển đổi từng user thành UserEntity => trả về mảng users là 1 tập collection của UserEntity
             return new UserEntity(
                 $user->id,
@@ -31,6 +33,38 @@ class EloquentUserRepository implements UserRepositoryInterface
 
         return $users;  // trả về danh sách người dùng
     }
+    public function paginate($perPage, $dtoSearch)
+    {
+        $query = User::query();
+
+        if ($dtoSearch->nameUser) {
+            $query->where('name', 'like', '%' . $dtoSearch->nameUser . '%');
+        }
+        if ($dtoSearch->role) {
+            $query->where('role', '=',  $dtoSearch->role);
+        }
+
+        $paginator = $query->paginate($perPage); // paginator ban đầu chứa User model
+
+        // Hàm chuyển đổi từ User model sang UserEntity
+        $convertToEntity = function ($user) {
+            return new UserEntity(
+                $user->id,
+                $user->name,
+                $user->email,
+                $user->number_phone,
+                $user->password,
+                $user->role,
+                $user->image,
+                $user->created_at->toImmutable(),
+                $user->updated_at->toImmutable()
+            );
+        };
+
+        // Dùng class hỗ trợ để map toàn bộ collection bên trong paginator nhưng vẫn giữ vỏ là LengthAwarePaginator 
+        return PaginatorTransformer::transform($paginator, $convertToEntity);
+    }
+
 
     public function getUserById(int $id)
     {

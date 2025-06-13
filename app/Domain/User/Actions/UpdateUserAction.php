@@ -19,7 +19,7 @@ class UpdateUserAction
     }
 
 
-    public function execute($dto)
+    public function execute(UserUpdateDto $dto)
     {
 
         $user = $this->userRepository->getUserById($dto->id);   //đây là 1 entity của đối tượng

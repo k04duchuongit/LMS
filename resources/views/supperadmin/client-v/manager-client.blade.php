@@ -14,7 +14,7 @@
 
         <!-- Filters -->
         <div class="filters-section">
-            <div class="row g-3">
+            <form href="{{ route('admin.user.index') }}" method="GET" class="row g-3">
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
@@ -23,31 +23,25 @@
                 <div class="col-md-4">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" class="form-control" placeholder="Tìm kiếm người dùng...">
+                        <input type="text" name="name-search" value="{{ request('name-search') }}" class="form-control"
+                            placeholder="Tìm kiếm người dùng...">
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <select class="form-select">
+                    <select class="form-select" name="role-search">
                         <option value="">Tất cả vai trò</option>
                         <option value="admin">Quản trị viên</option>
-                        <option value="teacher">Giảng viên</option>
+                        <option value="lecturer">Giảng viên</option>
                         <option value="student">Học viên</option>
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option value="">Tất cả trạng thái</option>
-                        <option value="active">Đang hoạt động</option>
-                        <option value="inactive">Không hoạt động</option>
-                        <option value="pending">Chờ duyệt</option>
-                    </select>
-                </div>
+
                 <div class="col-md-2">
-                    <button class="btn btn-secondary w-100">
+                    <button type="submit" class="btn btn-secondary w-100">
                         <i class="fas fa-filter me-2"></i>Lọc
                     </button>
                 </div>
-            </div>
+            </form>
         </div>
 
         <!-- Users Table -->
@@ -128,19 +122,39 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+                    @php
+                        $currentPage = $usersViewModel->currentPage();
+                        $lastPage = $usersViewModel->lastPage();
+                    @endphp
+
                     <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-end">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Trước</a>
+
+                            {{-- Nút "Trước" --}}
+                            <li class="page-item {{ $currentPage == 1 ? 'disabled' : '' }}">
+                                <a class="page-link"
+                                    href="{{ $usersViewModel->appends(request()->query())->url($currentPage - 1) }}"
+                                    tabindex="-1">Trước</a>
                             </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Sau</a>
+
+                            {{-- Các nút số trang --}}
+                            @for ($i = 1; $i <= $lastPage; $i++)
+                                <li class="page-item {{ $i == $currentPage ? 'active' : '' }}">
+                                    <a class="page-link"
+                                        href="{{ $usersViewModel->appends(request()->query())->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+
+                            {{-- Nút "Sau" --}}
+                            <li class="page-item {{ $currentPage == $lastPage ? 'disabled' : '' }}">
+                                <a class="page-link"
+                                    href="{{ $usersViewModel->appends(request()->query())->url($currentPage + 1) }}">Sau</a>
                             </li>
+
                         </ul>
                     </nav>
+
+
                 </div>
             </div>
         </div>

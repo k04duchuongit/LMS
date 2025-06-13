@@ -26,7 +26,7 @@ class UserEditViewModel
 
     public function getAvatar()
     {
-        return asset($this->user->avatar) ?? asset('storage/avatars/default-avatar.avif');
+        return asset($this->user->avatar) ?? asset('storage/avatars/macdinh.png');
     }
 
     public function getName()

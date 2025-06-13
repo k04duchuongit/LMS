@@ -4,6 +4,7 @@ namespace App\Domain\User\Actions;
 
 use App\Domain\User\DTO\UserListDto;
 use App\Domain\User\Repositories\UserRepositoryInterface;
+use App\Infrastructure\Support\PaginatorTransformer;
 
 class ListUserAction
 {
@@ -18,13 +19,14 @@ class ListUserAction
      * Execute the action to list all users.
      *
      */
-    public function execute()
+    public function execute($perPage,$dtoSearch)
     {
-        $UsersEntity = $this->userRepository->getAll();  // lúc này là 1 mảng chứa các collection của User entity
-        $UsersDto = $UsersEntity->map(function ($user) { // lấy dữ liệu từ entity nạp vào dto để đẩy sang App
-            return UserListDto::setDataDto($user);
-        });
+        $UsersEntity = $this->userRepository->paginate($perPage,$dtoSearch);
 
-        return $UsersDto;
+        $convertToDto = function ($user) { // lấy dữ liệu từ entity nạp vào dto để đẩy sang App
+            return UserListDto::setDataDto($user);
+        };
+        $usersDto = PaginatorTransformer::transform($UsersEntity, $convertToDto);
+        return $usersDto;
     }
 }

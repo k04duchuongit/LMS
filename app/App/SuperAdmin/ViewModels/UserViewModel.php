@@ -44,13 +44,16 @@ class UserViewModel
         return $this->user->role;
     }
 
+
     public function getAvatar(): ?string
     {
-        return asset($this->user->avatar ?? 'storage/avatar/default-avatar.avif'); // chuyển từ path trong storage sang URL đầy đủ
+        return asset($this->user->avatar ?? 'storage/avatars/macdinh.png'); // chuyển từ path trong storage sang URL đầy đủ
     }
 
     public function getCreatedAt(): string
     {
         return \Carbon\Carbon::parse($this->user->created_at)->format('d/m/Y H:i');
     }
+
+
 }

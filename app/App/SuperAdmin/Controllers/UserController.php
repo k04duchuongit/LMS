@@ -4,7 +4,6 @@ namespace App\App\SuperAdmin\Controllers;
 
 use App\App\SuperAdmin\Requests\FormCreateUser;
 use App\App\SuperAdmin\Requests\FormUpdateUser;
-use Illuminate\Http\Request;
 use App\Domain\User\Actions\ShowUserAction;
 use App\App\SuperAdmin\ViewModels\UserViewModel;
 use App\App\SuperAdmin\ViewModels\UserDetailViewModel;
@@ -15,9 +14,10 @@ use App\Domain\User\Actions\StoreUserAction;
 use App\Domain\User\Actions\UpdateUserAction;
 use App\Domain\User\DTO\UserCreateDto;
 use App\Domain\User\DTO\UserEditDto;
+use App\Domain\User\DTO\UserSearchDto;
 use App\Domain\User\DTO\UserUpdateDto;
-
-use function Laravel\Prompts\password;
+use App\Infrastructure\Support\PaginatorTransformer;
+use Illuminate\Support\Facades\Request;
 
 class UserController
 {
@@ -27,11 +27,16 @@ class UserController
     public function index(ListUserAction $usersAction)
     {
 
-        $users =  $usersAction->execute();                  //Users lúc này là 1 collection dto
+        $dtoSearch =  new UserSearchDto(
+            Request()->input('name-search'),
+            Request()->input('role-search'),
+        );
 
-        $usersViewModel = $users->map(function ($user) {    // chuyển Dto sang viewmodel để dùng phương thức của viewmodel
+        $users =  $usersAction->execute($perPage = 5, $dtoSearch);             //Users lúc này là 1 collection dto
+        $convertToVmodel = function ($user) {                                 // chuyển Dto sang viewmodel để dùng phương thức của viewmodel
             return new UserViewModel($user);
-        });
+        };
+        $usersViewModel = PaginatorTransformer::transform($users, $convertToVmodel);
 
         return view('supperadmin.client-v.manager-client', compact('usersViewModel'));
     }
@@ -69,7 +74,9 @@ class UserController
     public function show(int $id, ShowUserAction $showUserAction)
     {
         $user = $showUserAction->execute($id);
+
         $UserDetailViewModel = new UserDetailViewModel($user);  // khởi tạo ViewModel 
+
 
         return view('supperadmin.client-v.detail-client', compact('UserDetailViewModel'));
     }
@@ -100,9 +107,7 @@ class UserController
             avatar: $formCreateUser->file('avatar'),
             updated_at: now()
         );
-
         $userUpdateDto =  $updateUserAction->execute($dto);
-        $UserEditViewModel =  new UserEditViewModel($userUpdateDto);
 
         return redirect()->route('admin.user.edit', $id)->with('success', 'Cập nhật thành công');
     }
@@ -113,6 +118,6 @@ class UserController
     public function destroy(int $id, DeleteUserAction $deleteUserAction)
     {
         $deleteUserAction->execute($id);
-        return redirect()->route('admin.user.index', $id)->with('success', 'Xóa người dùng thành công');
+        return redirect()->route('admin.user.index')->with('success', 'Xóa người dùng thành công');
     }
 }
