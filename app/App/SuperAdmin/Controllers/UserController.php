@@ -121,3 +121,4 @@ class UserController
         return redirect()->route('admin.user.index')->with('success', 'Xóa người dùng thành công');
     }
 }
+git 
